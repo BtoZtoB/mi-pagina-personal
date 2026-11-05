@@ -1,174 +1,743 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera Página HTML</title>
+
+    <title>DeporZone | Reserva de Canchas</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
-<body>
+<body class="tema-cesped">
 
-    <!-- ENCABEZADO -->
-    <header>
-        <h1>Bienvenido a Mi Página Web</h1>
-        <p>Mi proyecto de práctica con HTML5</p>
-        <hr>
-    </header>
+<!-- ENCABEZADO -->
+<header class="header">
 
-    <!-- MENU -->
-    <nav>
-        <a href="#inicio">Inicio</a> |
-        <a href="#acerca">Acerca de</a> |
-        <a href="#tecnologias">Tecnologías</a> |
-        <a href="#contacto">Contacto</a>
+    <a href="#inicio" class="logo">
+        DEPOR<span>ZONE</span>
+    </a>
+
+    <div class="header-acciones">
+
+        <button id="btnTema" class="btn-tema"
+                type="button"
+                aria-label="Cambiar modo claro u oscuro">
+            <i class="bi bi-moon-stars-fill"></i>
+            <span>Modo oscuro</span>
+        </button>
+
+        <button id="btnMenu" class="btn-menu"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menuNavegacion">
+            <i class="bi bi-list"></i>
+        </button>
+
+    </div>
+
+    <nav id="menuNavegacion" class="menu-navegacion">
+        <a href="#inicio">
+            <i class="bi bi-house"></i> Inicio
+        </a>
+
+        <a href="#canchas">
+            <i class="bi bi-grid"></i> Canchas
+        </a>
+
+        <a href="#reservas">
+            <i class="bi bi-calendar-check"></i> Reservar
+        </a>
+
+        <a href="#contacto">
+            <i class="bi bi-chat-dots"></i> Contacto
+        </a>
     </nav>
 
-    <hr>
+</header>
 
-    <!-- INICIO -->
-    <main>
+<!-- CARRUSEL DE PORTADA -->
+<section class="hero" id="inicio">
 
-        <section id="inicio">
-            <h2>Inicio</h2>
+    <div class="hero-slide activo"
+         style="background-image: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1800&q=85')">
+    </div>
 
-            <p>
-                ¡Hola! Bienvenido a mi primera página
-                web desarrollada únicamente con HTML.
-            </p>
+    <div class="hero-slide"
+         style="background-image: url('https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=1800&q=85')">
+    </div>
 
-            <p>
-                En este proyecto estoy practicando
-                diferentes etiquetas y elementos
-                básicos de desarrollo web.
-            </p>
-        </section>
+    <div class="hero-slide"
+         style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=85')">
+    </div>
 
-        <hr>
+    <div class="hero-slide"
+         style="background-image: url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1800&q=85')">
+    </div>
 
-        <!-- ACERCA DE -->
-        <section id="acerca">
-            <h2>Acerca de este proyecto</h2>
+    <div class="hero-overlay"></div>
 
-            <p>
-                Esta página fue creada como parte
-                de una práctica de programación web.
-            </p>
+    <div class="hero-contenido">
 
-            <h3>Objetivos del proyecto</h3>
+        <span class="etiqueta">FÚTBOL Y FUTSAL</span>
 
-            <ul>
-                <li>Aprender la estructura de HTML.</li>
-                <li>Crear títulos y párrafos.</li>
-                <li>Utilizar enlaces de navegación.</li>
-                <li>Implementar tablas y formularios.</li>
-            </ul>
-        </section>
+        <h1>
+            EL PARTIDO<br>
+            COMIENZA <em>AQUÍ.</em>
+        </h1>
 
-        <hr>
+        <p>
+            Conoce nuestras canchas, consulta sus horarios
+            disponibles y reserva tu próximo partido.
+        </p>
 
-        <!-- TECNOLOGIAS -->
-        <section id="tecnologias">
-            <h2>Tecnologías Web</h2>
+        <a href="#canchas" class="btn btn-verde">
+            Explorar canchas
+        </a>
 
-            <p>
-                Estas son algunas tecnologías
-                utilizadas en el desarrollo web:
-            </p>
+        <div class="hero-carrusel-info">
 
-            <table border="1" cellpadding="10">
-                <tr>
-                    <th>Tecnología</th>
-                    <th>Función</th>
-                    <th>Nivel</th>
-                </tr>
+            <span id="nombreSlide">CÉSPED NATURAL</span>
 
-                <tr>
-                    <td>HTML</td>
-                    <td>Estructura de páginas</td>
-                    <td>Básico</td>
-                </tr>
+            <div class="hero-indicadores">
+                <button class="indicador activo"
+                        data-slide="0"
+                        aria-label="Primera imagen"></button>
 
-                <tr>
-                    <td>CSS</td>
-                    <td>Diseño y estilos</td>
-                    <td>Intermedio</td>
-                </tr>
+                <button class="indicador"
+                        data-slide="1"
+                        aria-label="Segunda imagen"></button>
 
-                <tr>
-                    <td>JavaScript</td>
-                    <td>Interactividad</td>
-                    <td>Intermedio</td>
-                </tr>
-            </table>
+                <button class="indicador"
+                        data-slide="2"
+                        aria-label="Tercera imagen"></button>
 
-            <h3>Pasos para crear una página</h3>
+                <button class="indicador"
+                        data-slide="3"
+                        aria-label="Cuarta imagen"></button>
+            </div>
 
-            <ol>
-                <li>Crear el archivo index.html.</li>
-                <li>Escribir la estructura HTML.</li>
-                <li>Agregar contenido.</li>
-                <li>Guardar los cambios.</li>
-                <li>Visualizar la página.</li>
-            </ol>
-        </section>
+        </div>
 
-        <hr>
+    </div>
 
-        <!-- CONTACTO -->
-        <section id="contacto">
-            <h2>Formulario de Contacto</h2>
+    <div class="hero-controles">
+        <button id="slideAnterior"
+                aria-label="Imagen anterior">‹</button>
 
-            <p>Completa los siguientes datos:</p>
+        <button id="slideSiguiente"
+                aria-label="Imagen siguiente">›</button>
+    </div>
 
-            <form>
-                <label for="nombre">Nombre:</label>
-                <br>
-                <input type="text" id="nombre"
-                       placeholder="Tu nombre" required>
+</section>
 
-                <br><br>
+<!-- CATÁLOGO DE CANCHAS -->
+<section class="seccion" id="canchas">
 
-                <label for="correo">Correo electrónico:</label>
-                <br>
-                <input type="email" id="correo"
-                       placeholder="Tu correo" required>
+    <div class="titulo">
+        <span>INSTALACIONES DEPORTIVAS</span>
+        <h2>ENCUENTRA TU CANCHA</h2>
+        <p>Cuatro superficies para disfrutar del fútbol y futsal.</p>
+    </div>
 
-                <br><br>
+    <div class="filtros">
 
-                <label for="mensaje">Mensaje:</label>
-                <br>
-                <textarea id="mensaje" rows="5"
-                          cols="35"
-                          placeholder="Escribe tu mensaje"></textarea>
+        <button class="filtro activo" data-filtro="todas">
+            Todas
+        </button>
 
-                <br><br>
+        <button class="filtro" data-filtro="cesped">
+            Césped natural
+        </button>
 
-                <button type="button">
-                    Enviar mensaje
+        <button class="filtro" data-filtro="sintetico">
+            Césped sintético
+        </button>
+
+        <button class="filtro" data-filtro="cemento">
+            Cemento
+        </button>
+
+        <button class="filtro" data-filtro="parquet">
+            Parquet
+        </button>
+
+    </div>
+
+    <div class="grid-canchas">
+
+        <!-- CÉSPED NATURAL -->
+        <article class="cancha" data-tipo="cesped">
+
+            <div class="foto foto-cesped">
+                <span class="etiqueta-foto">
+                    CÉSPED NATURAL
+                </span>
+            </div>
+
+            <div class="info">
+
+                <h3>Cancha de Césped Natural</h3>
+
+                <p>
+                    Disfruta del fútbol al aire libre
+                    sobre pasto natural.
+                </p>
+
+                <div class="precio">
+                    Bs 180 <small>/ hora</small>
+                </div>
+
+                <button class="btn-detalles">
+                    Ver características <span>+</span>
                 </button>
+
+                <div class="detalles">
+                    <p>✓ Césped natural</p>
+                    <p>✓ Espacio al aire libre</p>
+                    <p>✓ Arcos de fútbol</p>
+                    <p>✓ Área para espectadores</p>
+                </div>
+
+                <button class="btn btn-verde reservar-cancha"
+                        data-cancha="cesped">
+                    Reservar cancha
+                </button>
+
+            </div>
+        </article>
+
+        <!-- CÉSPED SINTÉTICO -->
+        <article class="cancha" data-tipo="sintetico">
+
+            <div class="foto foto-sintetico">
+                <span class="etiqueta-foto">
+                    CÉSPED SINTÉTICO
+                </span>
+            </div>
+
+            <div class="info">
+
+                <h3>Cancha de Césped Sintético</h3>
+
+                <p>
+                    Superficie artificial con iluminación
+                    para jugar de noche.
+                </p>
+
+                <div class="precio">
+                    Bs 150 <small>/ hora</small>
+                </div>
+
+                <button class="btn-detalles">
+                    Ver características <span>+</span>
+                </button>
+
+                <div class="detalles">
+                    <p>✓ Césped sintético</p>
+                    <p>✓ Iluminación LED</p>
+                    <p>✓ Vestuarios</p>
+                    <p>✓ Arcos y redes</p>
+                </div>
+
+                <button class="btn btn-verde reservar-cancha"
+                        data-cancha="sintetico">
+                    Reservar cancha
+                </button>
+
+            </div>
+        </article>
+
+        <!-- CEMENTO -->
+        <article class="cancha" data-tipo="cemento">
+
+            <div class="foto foto-cemento">
+                <span class="etiqueta-foto">
+                    CEMENTO
+                </span>
+            </div>
+
+            <div class="info">
+
+                <h3>Cancha de Cemento</h3>
+
+                <p>
+                    Superficie firme para partidos
+                    rápidos de futsal.
+                </p>
+
+                <div class="precio">
+                    Bs 90 <small>/ hora</small>
+                </div>
+
+                <button class="btn-detalles">
+                    Ver características <span>+</span>
+                </button>
+
+                <div class="detalles">
+                    <p>✓ Piso de cemento</p>
+                    <p>✓ Líneas de futsal</p>
+                    <p>✓ Arcos metálicos</p>
+                    <p>✓ Iluminación general</p>
+                </div>
+
+                <button class="btn btn-verde reservar-cancha"
+                        data-cancha="cemento">
+                    Reservar cancha
+                </button>
+
+            </div>
+        </article>
+
+        <!-- PARQUET -->
+        <article class="cancha" data-tipo="parquet">
+
+            <div class="foto foto-parquet">
+                <span class="etiqueta-foto">
+                    PARQUET DEPORTIVO
+                </span>
+            </div>
+
+            <div class="info">
+
+                <h3>Cancha de Parquet</h3>
+
+                <p>
+                    Cancha techada con piso deportivo
+                    para futsal.
+                </p>
+
+                <div class="precio">
+                    Bs 130 <small>/ hora</small>
+                </div>
+
+                <button class="btn-detalles">
+                    Ver características <span>+</span>
+                </button>
+
+                <div class="detalles">
+                    <p>✓ Piso de parquet</p>
+                    <p>✓ Cancha techada</p>
+                    <p>✓ Arcos de futsal</p>
+                    <p>✓ Graderías</p>
+                </div>
+
+                <button class="btn btn-verde reservar-cancha"
+                        data-cancha="parquet">
+                    Reservar cancha
+                </button>
+
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- SISTEMA DE RESERVAS -->
+<section class="seccion seccion-reservas" id="reservas">
+
+    <div class="titulo">
+        <span>RESERVAS ONLINE</span>
+        <h2>ASEGURA TU PARTIDO</h2>
+        <p>Selecciona tu cancha, fecha y horario.</p>
+    </div>
+
+    <!-- PESTAÑAS -->
+    <div class="tabs-reserva">
+
+        <button class="tab-cancha activo"
+                data-cancha="cesped">
+            Césped natural
+        </button>
+
+        <button class="tab-cancha"
+                data-cancha="sintetico">
+            Sintético
+        </button>
+
+        <button class="tab-cancha"
+                data-cancha="cemento">
+            Cemento
+        </button>
+
+        <button class="tab-cancha"
+                data-cancha="parquet">
+            Parquet
+        </button>
+
+    </div>
+
+    <div class="reserva-layout">
+
+        <!-- SELECCIÓN DE CANCHA -->
+        <div class="panel">
+
+            <h3>01. Selecciona tu cancha</h3>
+
+            <div class="vista-cancha">
+
+                <div id="imagenSeleccionada"
+                     class="foto foto-cesped"></div>
+
+                <div class="vista-info">
+
+                    <h3 id="nombreCanchaSeleccionada">
+                        Césped Natural
+                    </h3>
+
+                    <p id="descripcionCanchaSeleccionada">
+                        Cancha de fútbol con pasto natural.
+                    </p>
+
+                    <strong id="precioCanchaSeleccionada">
+                        Bs 180 / hora
+                    </strong>
+
+                </div>
+            </div>
+
+            <label for="tipoCancha">
+                Tipo de cancha *
+            </label>
+
+            <select id="tipoCancha">
+                <option value="cesped">
+                    Césped Natural - Bs 180
+                </option>
+
+                <option value="sintetico">
+                    Césped Sintético - Bs 150
+                </option>
+
+                <option value="cemento">
+                    Cemento - Bs 90
+                </option>
+
+                <option value="parquet">
+                    Parquet - Bs 130
+                </option>
+            </select>
+
+            <label for="fechaReserva">
+                Fecha de reserva *
+            </label>
+
+            <input type="date"
+                   id="fechaReserva"
+                   required>
+
+            <h3 class="subtitulo">
+                02. Horarios disponibles
+            </h3>
+
+            <div class="leyenda">
+
+                <span>
+                    <i class="bi bi-circle-fill disponible"></i>
+                    Disponible
+                </span>
+
+                <span>
+                    <i class="bi bi-circle-fill ocupado-color"></i>
+                    Ocupado
+                </span>
+
+                <span>
+                    <i class="bi bi-circle-fill elegido-color"></i>
+                    Seleccionado
+                </span>
+
+            </div>
+
+            <button id="mostrarHorarios"
+                    type="button"
+                    class="btn-secundario">
+
+                Ver / ocultar horarios
+
+                <i class="bi bi-chevron-down"></i>
+
+            </button>
+
+            <div id="panelHorarios">
+                <div id="listaHorarios"></div>
+            </div>
+
+            <p class="nota">
+                Cada horario corresponde a una hora de juego.
+            </p>
+
+        </div>
+
+        <!-- FORMULARIO -->
+        <div class="panel">
+
+            <h3>03. Completa tus datos</h3>
+
+            <form id="formReserva" novalidate>
+
+                <label for="nombre">
+                    Nombre completo *
+                </label>
+
+                <input type="text"
+                       id="nombre"
+                       placeholder="Ej. Juan Carlos Pérez"
+                       maxlength="80"
+                       autocomplete="name"
+                       required>
+
+                <small class="error-campo"
+                       id="errorNombre"></small>
+
+                <label for="telefono">
+                    Número de teléfono *
+                </label>
+
+                <input type="tel"
+                       id="telefono"
+                       placeholder="Ej. 71234567"
+                       maxlength="8"
+                       inputmode="numeric"
+                       autocomplete="tel"
+                       required>
+
+                <small class="error-campo"
+                       id="errorTelefono"></small>
+
+                <label for="correo">
+                    Correo electrónico *
+                </label>
+
+                <input type="email"
+                       id="correo"
+                       placeholder="ejemplo@gmail.com"
+                       maxlength="100"
+                       autocomplete="email"
+                       required>
+
+                <small class="error-campo"
+                       id="errorCorreo"></small>
+
+                <label for="metodoPago">
+                    Método de pago *
+                </label>
+
+                <select id="metodoPago" required>
+                    <option value="">
+                        Seleccionar método
+                    </option>
+
+                    <option value="Efectivo">
+                        Efectivo
+                    </option>
+
+                    <option value="QR">
+                        Pago mediante QR
+                    </option>
+                </select>
+
+                <small class="error-campo"
+                       id="errorPago"></small>
+
+                <!-- RESUMEN -->
+                <div class="resumen" id="resumenReserva">
+
+                    <h4>RESUMEN DE RESERVA</h4>
+
+                    <div>
+                        <span>Cancha</span>
+                        <strong id="resCancha">
+                            Césped Natural
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Fecha</span>
+                        <strong id="resFecha">
+                            Sin seleccionar
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Horario</span>
+                        <strong id="resHora">
+                            Sin seleccionar
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Duración</span>
+                        <strong>1 hora</strong>
+                    </div>
+
+                    <div class="total">
+                        <span>Total</span>
+                        <strong id="resTotal">
+                            Bs 180
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p id="mensajeError" role="alert"></p>
+
+                <button type="submit"
+                        class="btn btn-verde btn-confirmar">
+
+                    <i class="bi bi-check-circle"></i>
+                    Confirmar reserva
+
+                </button>
+
             </form>
 
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECCIÓN FINAL -->
+<section class="seccion seccion-extra">
+
+    <div id="iconoPrincipal">
+        <i class="bi bi-trophy-fill"></i>
+    </div>
+
+    <h2>¡EL FUTSAL NOS UNE!</h2>
+
+    <p>
+        Elige tu cancha y disfruta tu próximo partido.
+    </p>
+
+    <button id="btnMensaje" class="btn btn-verde">
+        ¡Vamos a jugar!
+    </button>
+
+    <p id="mensajeAnimado">
+        ¡Prepara tu equipo para el próximo partido!
+    </p>
+
+</section>
+
+<!-- FOOTER CORREGIDO -->
+<footer id="contacto">
+
+    <div class="footer-contenido">
+
+        <div>
+
+            <h2 class="logo">
+                DEPOR<span>ZONE</span>
+            </h2>
+
             <p>
-                <small>
-                    Formulario de demostración.
-                    No envía información.
-                </small>
+                Tu próximo partido comienza aquí.
             </p>
-        </section>
 
-    </main>
+        </div>
 
-    <hr>
+        <div class="footer-redes">
 
-    <!-- PIE DE PAGINA -->
-    <footer>
-        <p>© 2026 - Mi Primera Página HTML</p>
-        <p>Proyecto de Programación Web</p>
+            <h3>
+                SÍGUENOS EN REDES SOCIALES
+            </h3>
 
-        <a href="#inicio">Volver al inicio</a>
-    </footer>
+            <div class="redes-iconos">
+
+                <!-- WHATSAPP -->
+                <a href="https://www.whatsapp.com/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="red whatsapp"
+                   aria-label="WhatsApp"
+                   title="WhatsApp">
+
+                    <i class="bi bi-whatsapp"></i>
+
+                </a>
+
+                <!-- FACEBOOK -->
+                <a href="https://www.facebook.com/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="red facebook"
+                   aria-label="Facebook"
+                   title="Facebook">
+
+                    <i class="bi bi-facebook"></i>
+
+                </a>
+
+                <!-- TIKTOK -->
+                <a href="https://www.tiktok.com/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="red tiktok"
+                   aria-label="TikTok"
+                   title="TikTok">
+
+                    <i class="bi bi-tiktok"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- MODAL DE CONFIRMACIÓN -->
+<div id="modalConfirmacion"
+     class="modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="tituloConfirmacion">
+
+    <div class="modal-contenido">
+
+        <div class="check-grande">
+            <i class="bi bi-check-circle-fill"></i>
+        </div>
+
+        <h2 id="tituloConfirmacion">
+            ¡RESERVA CONFIRMADA!
+        </h2>
+
+        <p>
+            Tu reserva fue registrada correctamente.
+        </p>
+
+        <div id="detalleConfirmacion"></div>
+
+        <p class="aviso-pago">
+            Demostración académica.
+            No se realizó ningún cobro.
+        </p>
+
+        <button id="cerrarModal"
+                class="btn btn-verde">
+            Entendido
+        </button>
+
+    </div>
+
+</div>
+
+<!-- JQUERY -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- JAVASCRIPT -->
+<script src="script.js"></script>
 
 </body>
 </html>
