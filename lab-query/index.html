@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página HTML</title>
+</head>
+
+<body>
+
+ 
+    <header>
+        <h1>Bienvenido a Mi Página Web</h1>
+        <p>Mi proyecto de práctica con HTML5</p>
+        <hr>
+    </header>
+
+ 
+    <nav>
+        <a href="#inicio">Inicio</a> |
+        <a href="#acerca">Acerca de</a> |
+        <a href="#tecnologias">Tecnologías</a> |
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <hr>
+
+    
+    <main>
+
+        <section id="inicio">
+            <h2>Inicio</h2>
+
+            <p>
+                ¡Hola! Bienvenido a mi primera página
+                web desarrollada únicamente con HTML.
+            </p>
+
+            <p>
+                En este proyecto estoy practicando
+                diferentes etiquetas y elementos
+                básicos de desarrollo web.
+            </p>
+        </section>
+
+        <hr>
+
+        
+        <section id="acerca">
+            <h2>Acerca de este proyecto</h2>
+
+            <p>
+                Esta página fue creada como parte
+                de una práctica de programación web.
+            </p>
+
+            <h3>Objetivos del proyecto</h3>
+
+            <ul>
+                <li>Aprender la estructura de HTML.</li>
+                <li>Crear títulos y párrafos.</li>
+                <li>Utilizar enlaces de navegación.</li>
+                <li>Implementar tablas y formularios.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+     
+        <section id="tecnologias">
+            <h2>Tecnologías Web</h2>
+
+            <p>
+                Estas son algunas tecnologías
+                utilizadas en el desarrollo web:
+            </p>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Tecnología</th>
+                    <th>Función</th>
+                    <th>Nivel</th>
+                </tr>
+
+                <tr>
+                    <td>HTML</td>
+                    <td>Estructura de páginas</td>
+                    <td>Básico</td>
+                </tr>
+
+                <tr>
+                    <td>CSS</td>
+                    <td>Diseño y estilos</td>
+                    <td>Intermedio</td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Interactividad</td>
+                    <td>Intermedio</td>
+                </tr>
+            </table>
+
+            <h3>Pasos para crear una página</h3>
+
+            <ol>
+                <li>Crear el archivo index.html.</li>
+                <li>Escribir la estructura HTML.</li>
+                <li>Agregar contenido.</li>
+                <li>Guardar los cambios.</li>
+                <li>Visualizar la página.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+      
+        <section id="contacto">
+            <h2>Formulario de Contacto</h2>
+
+            <p>Completa los siguientes datos:</p>
+
+            <form>
+                <label for="nombre">Nombre:</label>
+                <br>
+                <input type="text" id="nombre"
+                       placeholder="Tu nombre" required>
+
+                <br><br>
+
+                <label for="correo">Correo electrónico:</label>
+                <br>
+                <input type="email" id="correo"
+                       placeholder="Tu correo" required>
+
+                <br><br>
+
+                <label for="mensaje">Mensaje:</label>
+                <br>
+                <textarea id="mensaje" rows="5"
+                          cols="35"
+                          placeholder="Escribe tu mensaje"></textarea>
+
+                <br><br>
+
+                <button type="button">
+                    Enviar mensaje
+                </button>
+            </form>
+
+            <p>
+                <small>
+                    Formulario de demostración.
+                    No envía información.
+                </small>
+            </p>
+        </section>
+
+    </main>
+
+    <hr>
+
+
+    <footer>
+        <p>© 2026 - Mi Primera Página HTML</p>
+        <p>Proyecto de Programación Web</p>
+
+        <a href="#inicio">Volver al inicio</a>
+    </footer>
+
+</body>
+</html>
