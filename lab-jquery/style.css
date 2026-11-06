@@ -1,0 +1,2965 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ========================================
+   DEPORZONE - ESTILOS GENERALES
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    --acento: #ff3658;
+    --fondo: #0c1420;
+    --panel: #192637;
+    --panel-secundario: #101b2a;
+    --borde: #304257;
+    --texto: #ffffff;
+    --muted: #aebccc;
+    --header: #0a111b;
+    --campo: #101b2a;
+
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    transition: background 0.5s, color 0.4s;
+    overflow-x: hidden;
+}
+
+/* COLORES SEGÚN LA CANCHA */
+
+body.tema-cesped {
+    --acento: #ff3658;
+}
+
+body.tema-sintetico {
+    --acento: #42edbd;
+}
+
+body.tema-cemento {
+    --acento: #ffbb62;
+}
+
+body.tema-parquet {
+    --acento: #75baff;
+}
+
+/* MODO CLARO */
+
+body.modo-claro {
+    --fondo: #f2f5f9;
+    --panel: #ffffff;
+    --panel-secundario: #edf2f7;
+    --borde: #d1dce8;
+    --texto: #172638;
+    --muted: #5d7085;
+    --header: #ffffff;
+    --campo: #f7f9fc;
+}
+
+body.modo-claro.tema-cesped {
+    --acento: #38861e;
+}
+
+body.modo-claro.tema-sintetico {
+    --acento: #008c70;
+}
+
+body.modo-claro.tema-cemento {
+    --acento: #b36510;
+}
+
+body.modo-claro.tema-parquet {
+    --acento: #256bb4;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+}
+
+/* ========================================
+   FONDO INTERACTIVO CON JQUERY
+======================================== */
+
+#fondoInteractivo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: var(--fondo);
+    transition: background 0.5s;
+}
+
+.capa-fondo {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
+    will-change: opacity;
+}
+
+#capaFondoActual {
+    opacity: 1;
+}
+
+/* CÉSPED NATURAL */
+
+.fondo-cesped {
+    background:
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(95, 230, 75, 0.48),
+            transparent 52%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(25, 170, 75, 0.42),
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            #071b14,
+            #16492b
+        );
+}
+
+/* CÉSPED SINTÉTICO */
+
+.fondo-sintetico {
+    background:
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(35, 240, 200, 0.50),
+            transparent 52%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(25, 135, 220, 0.42),
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            #071b25,
+            #105b62
+        );
+}
+
+/* CEMENTO */
+
+.fondo-cemento {
+    background:
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(255, 165, 65, 0.48),
+            transparent 52%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(150, 145, 135, 0.42),
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            #20232b,
+            #5c4937
+        );
+}
+
+/* PARQUET */
+
+.fondo-parquet {
+    background:
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(75, 150, 255, 0.50),
+            transparent 52%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(145, 75, 240, 0.43),
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            #101b3b,
+            #34316d
+        );
+}
+
+/* FONDOS EN MODO CLARO */
+
+body.modo-claro .fondo-cesped {
+    background:
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(88, 205, 75, 0.48),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(100, 200, 115, 0.38),
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            #e5f8db,
+            #b6e2b6
+        );
+}
+
+body.modo-claro .fondo-sintetico {
+    background:
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(35, 205, 190, 0.48),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(65, 160, 225, 0.38),
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            #dcf9f2,
+            #a9dfe5
+        );
+}
+
+body.modo-claro .fondo-cemento {
+    background:
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(255, 170, 75, 0.48),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(165, 155, 140, 0.36),
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            #f8eee0,
+            #e7cba9
+        );
+}
+
+body.modo-claro .fondo-parquet {
+    background:
+        radial-gradient(
+            ellipse at 80% 15%,
+            rgba(85, 145, 245, 0.46),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 10% 85%,
+            rgba(155, 110, 225, 0.40),
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            #e5efff,
+            #c7c1f0
+        );
+}
+
+/* LUZ QUE SIGUE AL CURSOR */
+
+#luzCursor {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    left: -500px;
+    top: -500px;
+    border-radius: 50%;
+    opacity: 0;
+    background: radial-gradient(
+        circle,
+        rgba(183, 255, 69, 0.24),
+        transparent 70%
+    );
+    filter: blur(10px);
+    will-change: left, top, opacity;
+}
+
+body.tema-sintetico #luzCursor {
+    background: radial-gradient(
+        circle,
+        #42edbd50,
+        transparent 70%
+    );
+}
+
+body.tema-cemento #luzCursor {
+    background: radial-gradient(
+        circle,
+        #ffbb6250,
+        transparent 70%
+    );
+}
+
+body.tema-parquet #luzCursor {
+    background: radial-gradient(
+        circle,
+        #75baff50,
+        transparent 70%
+    );
+}
+
+/* ELEMENTOS SOBRE EL FONDO */
+
+.header,
+.hero,
+.estadisticas,
+.seccion,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   ENCABEZADO
+======================================== */
+
+.header {
+    z-index: 100;
+    padding: 17px 7%;
+    background: var(--header);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--texto);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--acento);
+}
+
+.header-acciones {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-tema,
+.btn-menu {
+    border: 1px solid var(--borde);
+    background: var(--panel);
+    color: var(--texto);
+    border-radius: 9px;
+    height: 43px;
+}
+
+.btn-tema {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 15px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.btn-tema i {
+    color: var(--acento);
+    font-size: 18px;
+}
+
+.btn-menu {
+    width: 46px;
+    font-size: 27px;
+}
+
+.btn-menu:hover,
+.btn-tema:hover {
+    border-color: var(--acento);
+}
+
+.menu-navegacion {
+    display: none;
+    position: absolute;
+    right: 7%;
+    top: calc(100% + 7px);
+    width: 235px;
+    padding: 10px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px #00000030;
+    z-index: 200;
+}
+
+.menu-navegacion a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    color: var(--texto);
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.menu-navegacion a:hover {
+    background: var(--panel-secundario);
+    color: var(--acento);
+}
+
+/* ========================================
+   PORTADA Y CARRUSEL
+======================================== */
+
+.hero {
+    min-height: 530px;
+    padding: 75px 7%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #101c2a;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: none;
+}
+
+.hero-slide.activo {
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(5, 15, 26, 0.96),
+        rgba(5, 15, 26, 0.70) 48%,
+        rgba(5, 15, 26, 0.24)
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 660px;
+}
+
+.etiqueta {
+    display: inline-block;
+    background: #ff3658;
+    color: #111a24;
+    padding: 9px 13px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 7vw, 85px);
+    line-height: 0.95;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.hero h1 em {
+    color: #ff3658;
+    font-style: normal;
+}
+
+.hero p {
+    color: #d3dce5;
+    max-width: 510px;
+    line-height: 1.7;
+    margin: 25px 0;
+}
+
+.hero-carrusel-info {
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+#nombreSlide {
+    color: #ff3658;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero-indicadores {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.indicador {
+    width: 24px;
+    height: 5px;
+    background: #ffffff70;
+    border: none;
+    border-radius: 5px;
+}
+
+.indicador.activo {
+    width: 38px;
+    background: #ff3658;
+}
+
+.hero-controles {
+    position: absolute;
+    z-index: 3;
+    right: 7%;
+    bottom: 40px;
+    display: flex;
+    gap: 10px;
+}
+
+.hero-controles button {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ffffff70;
+    background: #091521aa;
+    color: white;
+    font-size: 32px;
+    border-radius: 7px;
+}
+
+.hero-controles button:hover {
+    background: #ff3658;
+    color: #101820;
+}
+
+.barra-carrusel {
+    position: absolute;
+    z-index: 4;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #ffffff30;
+}
+
+#progresoCarrusel {
+    width: 0;
+    height: 100%;
+    background: #ff3658;
+}
+
+/* ========================================
+   BOTONES Y SECCIONES
+======================================== */
+
+.btn {
+    display: inline-block;
+    padding: 15px 23px;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-verde {
+    background: var(--acento);
+    color: #ffffff;
+}
+
+body:not(.modo-claro) .btn-verde {
+    color: #101820;
+}
+
+.hero .btn-verde {
+    background: #ff3658;
+    color: #101820;
+}
+
+.seccion {
+    padding: 75px 7%;
+    background: transparent;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.titulo > span {
+    color: var(--acento);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.titulo h2 {
+    font-size: clamp(34px, 5vw, 52px);
+    margin: 9px 0;
+}
+
+.titulo p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ========================================
+   ESTADÍSTICAS
+======================================== */
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px 7%;
+    background: var(--panel);
+    border-bottom: 1px solid var(--borde);
+}
+
+.estadistica {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.estadistica i {
+    font-size: 25px;
+    color: var(--acento);
+}
+
+.estadistica strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 43px;
+    line-height: 1;
+}
+
+.estadistica span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ========================================
+   FILTROS
+======================================== */
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtro {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    color: var(--texto);
+    padding: 12px 17px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.filtro.activo,
+.filtro:hover {
+    background: var(--acento);
+    color: white;
+    border-color: var(--acento);
+}
+
+body:not(.modo-claro) .filtro.activo,
+body:not(.modo-claro) .filtro:hover {
+    color: #101820;
+}
+
+.resultado-filtro {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+/* ========================================
+   TARJETAS DE CANCHAS
+======================================== */
+
+.grid-canchas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.cancha {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 13px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.cancha:hover {
+    transform: translateY(-5px);
+    border-color: var(--acento);
+}
+
+.foto {
+    height: 230px;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #234b36;
+}
+
+.foto-cesped {
+    background-image: url("img/cesped.jpg");
+}
+
+.foto-sintetico {
+    background-image: url("img/sintetico.jpg");
+}
+
+.foto-cemento {
+    background-image: url("img/cemento.jpg");
+}
+
+.foto-parquet {
+    background-image: url("img/parquet.jpg");
+}
+
+.etiqueta-foto {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #ff3658;
+    color: #101820;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.info {
+    padding: 25px;
+}
+
+.info h3 {
+    font-size: 31px;
+    margin-bottom: 10px;
+}
+
+.info > p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 45px;
+}
+
+.precio {
+    color: var(--acento);
+    font-size: 28px;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.precio small {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.btn-detalles {
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    border: 1px solid var(--acento);
+    border-radius: 6px;
+    color: var(--acento);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.btn-detalles span {
+    float: right;
+}
+
+.detalles {
+    display: none;
+    background: var(--panel-secundario);
+    padding: 15px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+.detalles p {
+    padding: 6px 0;
+    color: var(--texto);
+    font-size: 13px;
+}
+
+.reservar-cancha {
+    width: 100%;
+}
+
+/* ========================================
+   RESERVAS
+======================================== */
+
+.seccion-reservas {
+    background: rgba(10, 20, 32, 0.12);
+}
+
+body.modo-claro .seccion-reservas {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.tabs-reserva {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 30px;
+    max-width: 1100px;
+}
+
+.tab-cancha {
+    background: var(--panel);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.tab-cancha.activo,
+.tab-cancha:hover {
+    background: var(--acento);
+    color: white;
+    border-color: var(--acento);
+}
+
+body:not(.modo-claro) .tab-cancha.activo,
+body:not(.modo-claro) .tab-cancha:hover {
+    color: #101820;
+}
+
+.reserva-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+    align-items: start;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    padding: 27px;
+    border-radius: 12px;
+}
+
+.panel h3 {
+    font-size: 27px;
+    margin-bottom: 23px;
+}
+
+.panel label {
+    display: block;
+    color: var(--texto);
+    font-size: 13px;
+    font-weight: 700;
+    margin: 18px 0 9px;
+}
+
+.panel input,
+.panel select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--borde);
+    border-radius: 7px;
+    background: var(--campo);
+    color: var(--texto);
+    outline: none;
+}
+
+.panel input:focus,
+.panel select:focus {
+    border-color: var(--acento);
+}
+
+.vista-cancha {
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--panel-secundario);
+    margin-bottom: 25px;
+}
+
+.vista-cancha .foto {
+    height: 210px;
+}
+
+.vista-info {
+    padding: 20px;
+}
+
+.vista-info h3 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.vista-info p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.vista-info strong {
+    color: var(--acento);
+    font-size: 22px;
+}
+
+/* VALIDACIONES */
+
+.panel input.invalido,
+.panel select.invalido {
+    border: 2px solid #e34b61;
+}
+
+.panel input.valido,
+.panel select.valido {
+    border: 2px solid #29ae72;
+}
+
+.error-campo {
+    display: none;
+    color: #ed6378;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 6px;
+}
+
+.error-campo.visible {
+    display: block;
+}
+
+/* HORARIOS */
+
+.panel .subtitulo {
+    margin: 35px 0 16px;
+}
+
+.leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.disponible {
+    color: #2ac77b;
+}
+
+.ocupado-color {
+    color: #f06270;
+}
+
+.elegido-color {
+    color: #479ce8;
+}
+
+.btn-secundario {
+    background: var(--panel-secundario);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    padding: 15px;
+    width: 100%;
+    border-radius: 7px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+#panelHorarios {
+    display: none;
+    padding-top: 15px;
+}
+
+#listaHorarios {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.hora-btn {
+    background: #163b30;
+    color: #a3ffce;
+    border: 1px solid #39775a;
+    padding: 14px 8px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hora-btn span {
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.hora-btn.ocupado {
+    background: #48242e;
+    border-color: #79404b;
+    color: #ff9ba7;
+    cursor: not-allowed;
+}
+
+.hora-btn.seleccionado {
+    background: #245f99;
+    border-color: #77c7ff;
+    color: white;
+    box-shadow: 0 0 0 3px #479ce833;
+}
+
+.nota {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+/* RESUMEN */
+
+.resumen {
+    background: var(--panel-secundario);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+    border: 1px solid var(--borde);
+}
+
+.resumen h4 {
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+
+.resumen > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    color: var(--muted);
+    font-size: 12px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.resumen strong {
+    color: var(--texto);
+    text-align: right;
+}
+
+.resumen .total {
+    border: none;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.resumen .total strong {
+    color: var(--acento);
+    font-size: 23px;
+}
+
+#mensajeError {
+    color: #ef6174;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.btn-confirmar {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* ========================================
+   MIS RESERVAS
+======================================== */
+
+.panel-mis-reservas {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.mis-reservas-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.mis-reservas-cabecera h3 {
+    margin: 0;
+}
+
+.btn-actualizar {
+    width: auto;
+    gap: 8px;
+}
+
+.reserva-item {
+    background: var(--panel-secundario);
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    padding: 20px;
+    margin-bottom: 12px;
+}
+
+.reserva-item-cabecera {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.reserva-item h4 {
+    font-size: 24px;
+}
+
+.reserva-item p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.reserva-item strong {
+    color: var(--texto);
+}
+
+.btn-cancelar {
+    background: #a93645;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.sin-reservas {
+    text-align: center;
+    padding: 40px 10px;
+    color: var(--muted);
+}
+
+.sin-reservas i {
+    display: block;
+    font-size: 40px;
+    color: var(--acento);
+    margin-bottom: 15px;
+}
+
+/* ========================================
+   MINIJUEGO DEPORZONE
+   ¡MARCA EL GOL!
+======================================== */
+
+.seccion-efectos {
+    background: rgba(10, 20, 32, 0.12);
+}
+
+body.modo-claro .seccion-efectos {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.juego-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+    align-items: stretch;
+}
+
+/* PANEL DE INSTRUCCIONES */
+
+.juego-instrucciones {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.juego-instrucciones h3 {
+    font-size: 31px;
+    line-height: 1.05;
+    margin-bottom: 16px;
+}
+
+.juego-instrucciones > p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* MARCADOR */
+
+.juego-marcador {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.juego-marcador > div {
+    text-align: center;
+    padding: 17px 8px;
+    background: var(--panel-secundario);
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    min-width: 0;
+}
+
+.juego-marcador span {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.juego-marcador strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--acento);
+}
+
+.juego-marcador small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+#juegoIniciar {
+    width: 100%;
+}
+
+#juegoMensaje {
+    min-height: 45px;
+    margin-top: 20px;
+    color: var(--acento);
+    font-weight: 800;
+    font-size: 14px;
+    text-align: center;
+}
+
+.juego-ayuda {
+    margin-top: 15px;
+    font-size: 12px !important;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* BOTONES PARA CELULAR Y PC */
+
+.juego-controles {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.juego-controles button {
+    min-height: 55px;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    background: var(--panel-secundario);
+    color: var(--texto);
+    font-weight: 800;
+    font-size: 12px;
+    padding: 12px 7px;
+    transition: background 0.2s, transform 0.2s;
+    touch-action: manipulation;
+}
+
+.juego-controles button i {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.juego-controles button:hover {
+    border-color: var(--acento);
+    transform: translateY(-2px);
+}
+
+#juegoDisparar {
+    background: var(--acento);
+    color: #10201b;
+    border-color: var(--acento);
+}
+
+body.modo-claro #juegoDisparar {
+    color: #ffffff;
+}
+
+.juego-controles button:active {
+    transform: scale(0.96);
+}
+
+/* PANEL DEL CAMPO */
+
+.juego-escenario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+#juegoCampo {
+    width: 100%;
+    height: 340px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 4px solid #e6ffe255;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #17653b 0px,
+            #17653b 70px,
+            #217747 70px,
+            #217747 140px
+        );
+    box-shadow:
+        inset 0 0 35px #00000035,
+        0 12px 25px #00000020;
+    outline: none;
+    isolation: isolate;
+}
+
+/* LÍNEAS DEL CAMPO */
+
+#juegoCampo::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 2px solid #ffffff80;
+    border-radius: 3px;
+    pointer-events: none;
+}
+
+.juego-linea-central {
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 50%;
+    width: 2px;
+    background: #ffffff70;
+    transform: translateX(-50%);
+}
+
+.juego-circulo-central {
+    position: absolute;
+    width: 105px;
+    height: 105px;
+    border: 2px solid #ffffff70;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.juego-area {
+    position: absolute;
+    right: 18px;
+    top: 20%;
+    width: 100px;
+    height: 60%;
+    border: 2px solid #ffffff90;
+    border-right: none;
+    pointer-events: none;
+}
+
+/* PORTERÍA */
+
+#juegoPorteria {
+    position: absolute;
+    right: 0;
+    top: 21%;
+    width: 32px;
+    height: 58%;
+    border: 5px solid #ffffff;
+    border-right: 0;
+    border-radius: 5px 0 0 5px;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 13px,
+            #ffffff40 14px,
+            transparent 15px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #ffffff15 0px,
+            #ffffff15 13px,
+            #ffffff40 14px,
+            #ffffff15 15px
+        );
+    box-shadow: 0 0 18px #ffffff30;
+    z-index: 1;
+}
+
+/* PORTERO */
+
+#juegoPortero {
+    position: absolute;
+    width: 47px;
+    height: 66px;
+    left: calc(100% - 91px);
+    top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #e75b3e,
+        #a92d31
+    );
+    border: 2px solid #ffffffa0;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px #00000055;
+    font-size: 31px;
+    will-change: top;
+}
+
+#juegoPortero i {
+    pointer-events: none;
+}
+
+/* BALÓN */
+
+#juegoBalon {
+    position: absolute;
+    left: 30px;
+    top: 145px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #172638;
+    box-shadow:
+        0 5px 12px #00000055,
+        inset 0 0 4px #b4b4b4;
+    z-index: 5;
+    font-size: 33px;
+    will-change: left, top;
+}
+
+#juegoBalon i {
+    pointer-events: none;
+}
+
+/* CELEBRACIÓN DE GOL */
+
+#juegoCelebracion {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    white-space: nowrap;
+    background: #091e17e8;
+    color: #ff3658;
+    border: 2px solid #ff3658;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(27px, 5vw, 49px);
+    font-weight: 900;
+    text-align: center;
+    text-shadow: 0 0 15px #ff365880;
+    box-shadow: 0 10px 30px #00000060;
+    pointer-events: none;
+}
+
+.juego-pie {
+    margin-top: 18px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* EFECTOS VISUALES DEL JUEGO */
+
+.juego-gol {
+    box-shadow:
+        inset 0 0 60px #ff365880,
+        0 0 25px #ff365855 !important;
+}
+
+.juego-atajada {
+    box-shadow:
+        inset 0 0 60px #ff555580,
+        0 0 25px #ff555555 !important;
+}
+
+.juego-tiempo-urgente {
+    color: #ff5b68 !important;
+}
+
+.juego-controles button:disabled,
+#juegoIniciar:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ========================================
+   SECCIÓN FINAL
+======================================== */
+
+.seccion-extra {
+    text-align: center;
+    background: rgba(10, 25, 20, 0.18);
+}
+
+body.modo-claro .seccion-extra {
+    background: rgba(230, 245, 233, 0.20);
+}
+
+#iconoPrincipal {
+    font-size: 65px;
+    color: var(--acento);
+    margin-bottom: 20px;
+}
+
+.seccion-extra h2 {
+    font-size: 43px;
+}
+
+.seccion-extra > p {
+    color: var(--muted);
+    margin: 20px auto;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+#mensajeAnimado {
+    display: none;
+    color: var(--acento);
+    font-weight: 800;
+}
+
+/* ========================================
+   PIE DE PÁGINA
+======================================== */
+
+footer {
+    background: var(--header);
+    color: var(--texto);
+    padding: 45px 7%;
+    border-top: 1px solid var(--borde);
+}
+
+.footer-contenido {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-contenido p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.footer-redes h3 {
+    font-size: 20px;
+    margin-bottom: 17px;
+}
+
+.redes-iconos {
+    display: flex;
+    gap: 13px;
+}
+
+.red {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    color: var(--texto);
+    text-decoration: none;
+    font-size: 23px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.red:hover {
+    transform: translateY(-4px);
+    color: white;
+}
+
+.red.whatsapp:hover {
+    background: #25d366;
+}
+
+.red.facebook:hover {
+    background: #1877f2;
+}
+
+.red.tiktok:hover {
+    background: #161616;
+}
+
+/* ========================================
+   MODAL DE CONFIRMACIÓN
+======================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000000c9;
+    z-index: 1000;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.modal-contenido {
+    background: var(--panel);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    padding: 35px;
+    border-radius: 14px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.check-grande {
+    font-size: 65px;
+    color: #32bf76;
+}
+
+.modal h2 {
+    font-size: 34px;
+    margin: 10px 0;
+}
+
+.modal p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+#detalleConfirmacion {
+    background: var(--panel-secundario);
+    padding: 17px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+#detalleConfirmacion p {
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+}
+
+.modal .aviso-pago {
+    font-size: 12px;
+    color: #d6953c;
+}
+
+.modal .btn {
+    width: 100%;
+}
+
+/* ========================================
+   VOLVER ARRIBA Y NOTIFICACIONES
+======================================== */
+
+#volverArriba {
+    display: none;
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 90;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--acento);
+    color: #101820;
+    font-size: 24px;
+    box-shadow: 0 5px 20px #00000040;
+}
+
+#notificacion {
+    display: none;
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 1200;
+    max-width: 340px;
+    background: var(--panel);
+    border: 1px solid var(--acento);
+    color: var(--texto);
+    padding: 17px 22px;
+    border-radius: 9px;
+    box-shadow: 0 10px 30px #00000040;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ========================================
+   ANIMACIONES DE ENTRADA JQUERY
+======================================== */
+
+.animar-entrada {
+    opacity: 0;
+    position: relative;
+    top: 25px;
+}
+
+/* ========================================
+   DISEÑO RESPONSIVE
+======================================== */
+
+@media (max-width: 950px) {
+
+    .juego-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .juego-instrucciones {
+        max-width: 100%;
+    }
+
+    #juegoCampo {
+        height: 340px;
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .header {
+        padding: 15px 5%;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    .menu-navegacion {
+        right: 5%;
+    }
+
+    .hero {
+        min-height: 480px;
+        padding: 65px 6% 100px;
+    }
+
+    .hero-controles {
+        right: 6%;
+        bottom: 22px;
+    }
+
+    .seccion {
+        padding: 55px 6%;
+    }
+
+    .grid-canchas,
+    .reserva-layout,
+    .juego-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .foto {
+        height: 200px;
+    }
+
+    .tab-cancha {
+        flex: 1 1 40%;
+        padding: 12px 8px;
+    }
+
+    .estadisticas {
+        gap: 10px;
+    }
+
+    .estadistica strong {
+        font-size: 34px;
+    }
+
+    .estadistica span {
+        font-size: 10px;
+    }
+
+    .seccion-extra h2 {
+        font-size: 34px;
+    }
+
+    #luzCursor {
+        display: none;
+    }
+
+    /* MINIJUEGO EN CELULARES */
+
+    .juego-instrucciones h3 {
+        font-size: 27px;
+    }
+
+    .juego-marcador strong {
+        font-size: 38px;
+    }
+
+    #juegoCampo {
+        height: 290px;
+    }
+
+    #juegoPortero {
+        width: 42px;
+        height: 60px;
+        left: calc(100% - 80px);
+        font-size: 27px;
+    }
+
+    #juegoBalon {
+        width: 43px;
+        height: 43px;
+        font-size: 29px;
+    }
+
+    .juego-controles button {
+        min-height: 65px;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .btn-tema span {
+        display: none;
+    }
+
+    .btn-tema {
+        width: 43px;
+        justify-content: center;
+        padding: 0;
+    }
+
+    #listaHorarios {
+        grid-template-columns: 1fr;
+    }
+
+    .filtro {
+        padding: 10px;
+    }
+
+    .mis-reservas-cabecera {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #juegoCampo {
+        height: 245px;
+    }
+
+    #juegoPortero {
+        width: 38px;
+        height: 54px;
+        left: calc(100% - 72px);
+        font-size: 25px;
+    }
+
+    #juegoBalon {
+        width: 39px;
+        height: 39px;
+        font-size: 26px;
+    }
+
+    .juego-marcador {
+        gap: 6px;
+    }
+
+    .juego-marcador > div {
+        padding: 13px 5px;
+    }
+
+    .juego-marcador strong {
+        font-size: 34px;
+    }
+
+    .juego-controles {
+        gap: 6px;
+    }
+
+    .juego-controles button {
+        font-size: 11px;
+        padding: 10px 4px;
+    }
+
+    #juegoCelebracion {
+        font-size: 26px;
+        padding: 12px 16px;
+    }
+
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    #luzCursor {
+        display: none;
+    }
+
+}
+
+
+/* ======================================================
+   DEPORZONE | DISEÑO EDITORIAL SPA
+   No escala artificialmente la interfaz.
+   La navegación es fija; los formularios tienen su
+   propia zona de desplazamiento cuando hace falta.
+====================================================== */
+html { height:100%; overflow:hidden; }
+body.dz-aplicacion { display:flex!important; flex-direction:column!important; grid-template:none!important; gap:0!important; height:100dvh; min-height:0!important; overflow:hidden!important; padding:0!important; }
+body.dz-aplicacion > .header { position:relative!important; inset:auto!important; width:100%; min-height:68px; height:68px; flex:0 0 68px; padding:12px 4%!important; margin:0!important; z-index:100; }
+.dz-navegacion { display:flex; align-items:center; justify-content:center; gap:10px; flex:0 0 57px; padding:7px 24px; background:var(--panel); border-bottom:1px solid var(--borde); overflow-x:auto; scrollbar-width:none; z-index:12; }
+.dz-navegacion::-webkit-scrollbar { display:none; }
+.dz-boton { display:flex; align-items:center; justify-content:center; gap:9px; flex:0 0 auto; border:1px solid transparent; border-radius:999px; padding:10px 21px; background:transparent; color:var(--texto); font:700 14px/1.2 inherit; font-size:14px; cursor:pointer; transition:background .2s,transform .2s,color .2s; }
+.dz-boton i { font-size:17px; }
+.dz-boton:hover { background:var(--panel-secundario); transform:translateY(-1px); }
+.dz-boton.activo { background:var(--acento); color:#0b1711; box-shadow:0 3px 16px rgba(0,0,0,.12); }
+.dz-contenido { flex:1 1 auto; min-height:0; min-width:0; position:relative; z-index:1; overflow:hidden; width:100%; }
+.dz-contenido > .dz-vista { display:none!important; }
+.dz-contenido > .dz-vista.dz-activa { display:flex!important; flex-direction:column; box-sizing:border-box; width:100%; height:100%; min-height:0; max-height:100%; margin:0!important; overflow:hidden; }
+.dz-contenido > section.dz-vista { max-width:1550px; padding:24px clamp(22px,4vw,70px) 28px!important; background:transparent; }
+.dz-contenido .titulo { flex:0 0 auto; margin:0 0 18px!important; text-align:left; }
+.dz-contenido .titulo > span { font-size:12px; letter-spacing:.15em; }
+.dz-contenido .titulo h2 { font-size:clamp(27px,2.8vw,42px); line-height:1.13; margin:4px 0 5px; }
+.dz-contenido .titulo p { font-size:14px; margin:0; }
+.dz-contenido .animar-entrada { opacity:1!important; transform:none!important; }
+/* INICIO: imagen protagonista, banda de datos y redes discretas */
+.dz-inicio.dz-activa { display:grid!important; grid-template-rows:minmax(0,1fr) auto!important; background:var(--fondo); }
+.dz-inicio .hero { width:100%; height:100%; min-height:0!important; margin:0!important; padding:clamp(30px,5vw,76px) 8%!important; border-radius:0; overflow:hidden; display:flex; align-items:center; }
+.dz-inicio .hero-contenido { max-width:730px; }
+.dz-inicio .hero h1 { font-size:clamp(43px,5.3vw,84px); line-height:1.05; }
+.dz-inicio .hero p { font-size:clamp(14px,1.25vw,18px); max-width:550px; }
+.dz-inicio .dz-inicio-inferior { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr); align-items:stretch; min-height:118px; background:var(--panel); border-top:1px solid var(--borde); }
+.dz-inicio .estadisticas { display:grid!important; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:center; gap:8px; margin:0!important; padding:16px 5%!important; min-height:0; }
+.dz-inicio .estadistica { min-width:0; }
+.dz-inicio .estadistica strong { font-size:clamp(24px,2.3vw,35px); }
+.dz-inicio .estadistica span { font-size:12px; }
+.dz-inicio #contacto { position:relative; display:flex; align-items:center; justify-content:center; margin:0!important; padding:15px 26px!important; background:transparent; border-top:0; border-left:1px solid var(--borde); }
+.dz-inicio #contacto .footer-contenido { display:flex; width:100%; align-items:center; justify-content:space-between; flex-wrap:nowrap; gap:20px; }
+.dz-inicio #contacto .footer-contenido > div:first-child { max-width:200px; }
+.dz-inicio #contacto .logo { font-size:20px; white-space:nowrap; }
+.dz-inicio #contacto .footer-contenido p { font-size:11px; margin-top:3px; }
+.dz-inicio #contacto .footer-redes h3 { font-size:11px; margin:0 0 8px; letter-spacing:.07em; }
+.dz-inicio #contacto .redes-iconos { gap:8px; }
+.dz-inicio #contacto .red { width:37px; height:37px; font-size:18px; }
+/* CANCHAS: tarjetas amplias y equilibradas, no bloques apilados */
+#canchas .filtros { display:flex; flex:0 0 auto; gap:9px; margin:0 0 9px!important; flex-wrap:wrap; }
+#canchas .filtro { padding:10px 16px; font-size:13px; border-radius:999px; }
+#canchas #resultadoFiltro { flex:0 0 auto; margin:0 0 12px!important; font-size:12px; }
+#canchas .grid-canchas { display:grid!important; grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:minmax(0,1fr); gap:18px!important; flex:1 1 auto; min-height:0; max-height:100%; align-items:stretch; overflow:visible; }
+#canchas .cancha { display:flex; flex-direction:column; min-width:0; min-height:0; height:100%; border-radius:17px; overflow:hidden; }
+#canchas .cancha .foto { flex:0 0 34%; height:auto!important; min-height:110px; }
+#canchas .cancha .info { display:flex; flex:1 1 auto; flex-direction:column; gap:9px; padding:18px!important; min-height:0; }
+#canchas .cancha .info h3 { font-size:clamp(17px,1.45vw,22px); line-height:1.17; margin:0; }
+#canchas .cancha .info > p { font-size:13px; line-height:1.45; margin:0; }
+#canchas .cancha .precio { margin:2px 0 0; }
+#canchas .cancha .btn-detalles { margin:0; }
+#canchas .cancha .reservar-cancha { margin-top:auto; padding:12px; width:100%; font-size:13px; }
+/* RESERVA: cada panel tiene su espacio, sin achicar inputs */
+#reservas .tabs-reserva { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:9px; margin:0 0 16px!important; justify-content:flex-start; }
+#reservas .tab-cancha { padding:10px 17px; font-size:13px; }
+#reservas .reserva-layout { display:grid!important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; flex:1 1 auto; min-height:0; max-width:1220px; width:100%; margin:0 auto; align-items:stretch; }
+#reservas .reserva-layout > .panel { min-height:0; height:100%; overflow-y:auto; scrollbar-width:thin; padding:23px 26px!important; border-radius:17px; }
+#reservas .panel h3 { font-size:20px; margin:0 0 16px; }
+#reservas .panel label { display:block; font-size:13px; margin:12px 0 6px; }
+#reservas .panel input,#reservas .panel select { min-height:42px; padding:10px 13px; font-size:14px; margin:0 0 6px; }
+#reservas .vista-cancha { display:grid; grid-template-columns:40% 1fr; min-height:116px; margin:0 0 16px; }
+#reservas .vista-cancha .foto { height:100%; min-height:116px; }
+#reservas .vista-info { padding:13px; }
+#reservas .vista-info h3 { font-size:17px; margin:0 0 6px; }
+#reservas .vista-info p { font-size:12px; }
+#reservas #listaHorarios { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:7px; }
+#reservas .resumen { padding:15px; margin:16px 0; }
+#reservas .btn-confirmar { padding:13px; width:100%; }
+/* MIS RESERVAS */
+#misReservas .panel-mis-reservas { width:100%; max-width:1080px; margin:0 auto; min-height:0; flex:1 1 auto; overflow-y:auto; padding:25px; border-radius:17px; }
+/* MINIJUEGO */
+#minijuego .juego-layout { display:grid!important; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:22px; width:100%; max-width:1240px; flex:1 1 auto; min-height:0; margin:0 auto; align-items:stretch; }
+#minijuego .juego-layout > .panel { padding:23px!important; min-height:0; overflow-y:auto; border-radius:17px; }
+#minijuego #juegoCampo { height:clamp(230px,42vh,390px); width:100%; }
+#modalConfirmacion { position:fixed!important; z-index:99998!important; }
+#ventanaPagoTemporizado { position:fixed!important; z-index:99999!important; }
+#volverArriba { display:none!important; }
+@media (max-width:1150px) {
+ #canchas .grid-canchas { grid-template-columns:repeat(2,minmax(0,1fr)); overflow-y:auto; }
+ #canchas .cancha { min-height:350px; height:auto; }
+ #canchas .cancha .foto { height:155px!important; flex:0 0 155px; }
+ .dz-inicio .dz-inicio-inferior { grid-template-columns:minmax(0,1fr) minmax(300px,.8fr); }
+}
+@media (max-width:800px) {
+ .dz-navegacion { justify-content:flex-start; padding:7px 12px; }
+ .dz-boton { padding:10px 14px; }
+ .dz-inicio .dz-inicio-inferior { grid-template-columns:1fr; }
+ .dz-inicio .estadisticas { padding:12px 4%!important; }
+ .dz-inicio #contacto { padding:9px 4%!important; border-left:0; border-top:1px solid var(--borde); }
+ #reservas .reserva-layout,#minijuego .juego-layout { grid-template-columns:1fr; overflow-y:auto; }
+ #reservas .reserva-layout > .panel,#minijuego .juego-layout > .panel { height:auto; overflow:visible; }
+}
+@media (max-width:540px) {
+ body.dz-aplicacion>.header { min-height:60px; height:60px; flex-basis:60px; }
+ .dz-contenido > section.dz-vista { padding:18px 15px!important; }
+ .dz-contenido .titulo h2 { font-size:27px; }
+ .dz-inicio .hero { padding:24px 7%!important; }
+ .dz-inicio .hero h1 { font-size:clamp(37px,9vw,54px); }
+ .dz-inicio .dz-inicio-inferior { min-height:0; }
+ .dz-inicio .estadisticas { gap:5px; }
+ .dz-inicio .estadistica strong { font-size:22px; }
+ .dz-inicio .estadistica span { font-size:10px; }
+ .dz-inicio #contacto .footer-contenido { gap:10px; }
+ #canchas .grid-canchas { grid-template-columns:1fr; }
+ #canchas .cancha { min-height:380px; }
+ #reservas .reserva-layout { gap:15px; }
+ #reservas .reserva-layout>.panel { padding:18px!important; }
+}
+
+/* ======================================================
+   DEPOrZONE | REDISEÑO EXCLUSIVO DE LA VISTA CANCHAS
+   Sin zoom, sin modificar Inicio, Reserva ni Minijuego.
+   ====================================================== */
+@media (min-width: 1160px) {
+  .dz-contenido > #canchas.dz-vista {
+    position: relative;
+    padding: 23px clamp(26px, 4vw, 62px) 24px !important;
+  }
+  #canchas .titulo {
+    margin: 0 0 13px !important;
+    padding-right: 590px;
+    min-height: 76px;
+  }
+  #canchas .titulo > span { font-size: 11px; }
+  #canchas .titulo h2 { font-size: clamp(26px, 2.3vw, 34px); margin: 3px 0 4px; }
+  #canchas .titulo p { font-size: 13px; line-height: 1.3; }
+  #canchas .filtros {
+    position: absolute;
+    top: 63px;
+    right: clamp(26px, 4vw, 62px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+    max-width: 590px;
+    margin: 0 !important;
+  }
+  #canchas .filtro {
+    white-space: nowrap;
+    padding: 9px 11px;
+    font-size: 11px;
+    border-radius: 22px;
+  }
+  #canchas #resultadoFiltro {
+    text-align: left;
+    font-size: 11px;
+    margin: 0 0 9px !important;
+    opacity: .8;
+  }
+  #canchas .grid-canchas {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex: 1 1 0;
+    min-height: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    grid-template-rows: minmax(0, 1fr);
+    grid-auto-rows: minmax(0, 1fr);
+    gap: 15px !important;
+    overflow: visible;
+  }
+  #canchas .cancha {
+    position: relative;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 9px 28px rgba(0,0,0,.13);
+  }
+  #canchas .cancha:hover { transform: translateY(-3px); }
+  #canchas .cancha .foto {
+    height: 32% !important;
+    flex: 0 0 32%;
+    min-height: 88px;
+    background-position: center 52%;
+  }
+  #canchas .etiqueta-foto {
+    top: 11px; left: 12px;
+    padding: 6px 9px;
+    font-size: 9px;
+    letter-spacing: .02em;
+  }
+  #canchas .cancha .info {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    min-height: 0;
+    padding: 12px 15px 14px !important;
+    gap: 5px;
+  }
+  #canchas .cancha .info h3 {
+    font-size: clamp(15px, 1.24vw, 19px);
+    line-height: 1.17;
+    margin: 0;
+  }
+  #canchas .cancha .info > p {
+    font-size: 11px;
+    line-height: 1.3;
+    min-height: 0;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  #canchas .cancha .precio {
+    font-size: clamp(20px, 1.9vw, 27px);
+    line-height: 1.1;
+    margin: auto 0 2px;
+  }
+  #canchas .cancha .precio small { font-size: 11px; }
+  #canchas .cancha .btn-detalles {
+    padding: 5px 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    text-align: left;
+    font-size: 11px;
+    margin: 0;
+    width: fit-content;
+  }
+  #canchas .cancha .reservar-cancha {
+    flex: 0 0 auto;
+    min-height: 34px;
+    width: 100%;
+    margin: 2px 0 0;
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.2;
+    border-radius: 8px;
+  }
+  #canchas .cancha .detalles {
+    position: absolute;
+    z-index: 5;
+    left: 9px;
+    right: 9px;
+    bottom: 48px;
+    max-height: 52%;
+    overflow-y: auto;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    padding: 10px 13px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.35);
+  }
+  #canchas .cancha .detalles p { font-size: 12px; margin: 5px 0; }
+}
+/* Ventanas medianas: dos tarjetas por fila y desplazamiento SOLO dentro de la cuadrícula. */
+@media (min-width: 541px) and (max-width: 1159px) {
+  #canchas .titulo { margin-bottom: 10px !important; }
+  #canchas .filtros { justify-content: flex-start; gap: 6px; }
+  #canchas .filtro { padding: 8px 11px; font-size: 11px; }
+  #canchas #resultadoFiltro { text-align: left; margin-bottom: 8px !important; }
+  #canchas .grid-canchas { grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 12px !important; }
+  #canchas .cancha { min-height: 285px; }
+  #canchas .cancha .foto { height: 110px !important; flex-basis: 110px; min-height: 0; }
+  #canchas .cancha .info { gap: 5px; padding: 12px !important; }
+  #canchas .cancha .info h3 { font-size: 18px; }
+  #canchas .cancha .info > p { font-size: 12px; min-height: 0; }
+  #canchas .cancha .precio { font-size: 23px; margin: 0; }
+  #canchas .cancha .btn-detalles { padding: 5px; margin: 0; font-size: 12px; }
+  #canchas .cancha .reservar-cancha { padding: 8px; }
+}
+
+/* CORRECCIÓN FINAL: separación visible de los filtros respecto al menú */
+@media (min-width: 1160px) {
+  .dz-contenido > #canchas.dz-vista .filtros {
+    top: 83px !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* Regresar desde el formulario de reserva a la lista de canchas */
+#reservas .dz-volver-canchas { display:inline-flex; align-items:center; gap:8px; margin:8px 0 0 0; padding:7px 13px; border:1px solid var(--borde); border-radius:999px; background:var(--panel); color:var(--texto); font:700 13px/1.2 Arial,sans-serif; cursor:pointer; }
+#reservas .dz-volver-canchas:hover { border-color:var(--acento); color:var(--acento); }
+
+/* ==============================================
+   RESERVA: DISEÑO COMPACTO REAL SIN ZOOM NI SCROLL
+   ============================================== */
+#reservas.dz-vista.dz-activa {display:flex!important; flex-direction:column; padding:16px clamp(22px,4vw,58px) 18px!important; overflow:hidden!important; gap:12px;}
+#reservas .dz-reserva-encabezado {display:flex; align-items:center; justify-content:space-between; gap:16px; flex:0 0 auto;}
+#reservas .dz-reserva-encabezado .titulo {margin:0!important;}
+#reservas .dz-reserva-encabezado .titulo > span {font-size:10px;}
+#reservas .dz-reserva-encabezado .titulo h2 {font-size:clamp(23px,2.4vw,32px); margin:2px 0!important;}
+#reservas .dz-reserva-encabezado .titulo p {font-size:12px;}
+#reservas .dz-selector-interno, #reservas .dz-oculto {display:none!important;}
+#reservas .dz-volver-canchas {margin:0!important; white-space:nowrap;}
+#reservas .reserva-layout.dz-reserva-nueva {display:grid!important; grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr)!important; gap:16px; flex:1 1 0; min-height:0; max-width:1420px; align-items:stretch;}
+#reservas .reserva-layout.dz-reserva-nueva > .panel {height:100%!important; min-height:0!important; overflow:hidden!important; padding:15px 18px!important; border-radius:16px; display:flex; flex-direction:column;}
+#reservas .dz-cancha-elegida {display:grid; grid-template-columns:120px minmax(0,1fr); gap:12px; background:rgba(0,0,0,.12); border:1px solid var(--borde); border-radius:12px; overflow:hidden; flex:0 0 auto; min-height:88px;}
+#reservas .dz-cancha-elegida .foto {height:100%!important; min-height:88px!important; width:120px; border-radius:0;}
+#reservas .dz-cancha-elegida .vista-info {padding:8px 6px 7px 0; min-width:0;}
+#reservas .dz-etiqueta {font-size:9px; color:var(--acento); font-weight:800; letter-spacing:.07em;}
+#reservas .dz-cancha-elegida .vista-info h3 {font-size:16px; margin:2px 0!important;}
+#reservas .dz-cancha-elegida .vista-info p {font-size:11px; margin:0!important; line-height:1.2;}
+#reservas .dz-cancha-elegida .vista-info strong {display:block; margin-top:4px; font-size:17px;}
+#reservas .dz-fecha-fila {display:flex; align-items:center; gap:14px; margin:12px 0 8px; flex:0 0 auto;}
+#reservas .dz-fecha-fila label {font-size:13px; margin:0; white-space:nowrap; font-weight:800;}
+#reservas .dz-fecha-fila input {margin:0!important; width:190px; min-height:34px!important; padding:6px 9px!important; font-size:12px;}
+#reservas .dz-horarios-cabecera {display:flex; justify-content:space-between; align-items:center; gap:10px; flex:0 0 auto; margin:2px 0 7px;}
+#reservas .dz-horarios-cabecera h3 {font-size:15px!important; margin:0!important; white-space:nowrap;}
+#reservas .dz-horarios-cabecera .leyenda {display:flex; gap:9px; margin:0; flex-wrap:nowrap;}
+#reservas .dz-horarios-cabecera .leyenda span {font-size:10px; white-space:nowrap;}
+#reservas #panelHorarios {display:block!important; padding:0!important; flex:1 1 0; min-height:0; overflow:hidden!important;}
+#reservas #listaHorarios {display:grid!important; grid-template-columns:repeat(4,minmax(0,1fr))!important; grid-template-rows:repeat(4,minmax(0,1fr)); gap:5px!important; height:100%; align-content:stretch;}
+#reservas #listaHorarios .hora-btn {min-height:0!important; height:100%; padding:3px 2px!important; font-size:11px!important; line-height:1.15; border-radius:7px;}
+#reservas #listaHorarios .hora-btn span {font-size:9px; margin-top:2px;}
+#reservas .dz-reserva-paso2 > h3 {font-size:17px!important; margin:0 0 9px!important; flex:0 0 auto;}
+#reservas #formReserva {display:flex; flex-direction:column; flex:1 1 0; min-height:0; gap:7px;}
+#reservas .dz-form-grid {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px 12px; flex:0 0 auto;}
+#reservas .dz-campo {min-width:0;}
+#reservas .dz-campo label {font-size:11px!important; margin:0 0 3px!important; font-weight:700;}
+#reservas .dz-campo input, #reservas .dz-campo select {width:100%; min-height:34px!important; height:34px; margin:0!important; padding:5px 10px!important; font-size:12px!important;}
+#reservas .dz-campo .error-campo {display:block; font-size:10px; line-height:1.1; min-height:0;}
+#reservas #resumenReserva {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:3px 12px; margin:0!important; padding:9px 12px!important; flex:1 1 0; min-height:0; align-content:space-evenly;}
+#reservas #resumenReserva h4 {grid-column:1/-1; margin:0 0 2px!important; font-size:12px;}
+#reservas #resumenReserva > div {margin:0!important; padding:2px 0!important; font-size:11px; min-width:0;}
+#reservas #resumenReserva > div strong {font-size:11px; text-align:right; overflow-wrap:anywhere;}
+#reservas #resumenReserva > div.total {grid-column:1/-1; border-top:1px solid var(--borde); padding-top:5px!important;}
+#reservas #resumenReserva > div.total strong {font-size:17px;}
+#reservas #mensajeError {font-size:11px; margin:0!important; min-height:0;}
+#reservas .btn-confirmar {flex:0 0 auto; min-height:38px; padding:8px!important; font-size:13px; margin:0!important;}
+@media (max-width:900px) {#reservas .reserva-layout.dz-reserva-nueva {gap:9px; grid-template-columns:1fr 1fr!important;} #reservas .reserva-layout.dz-reserva-nueva>.panel {padding:10px!important;} #reservas .dz-cancha-elegida {grid-template-columns:80px 1fr;} #reservas .dz-cancha-elegida .foto {width:80px;} #reservas .dz-horarios-cabecera .leyenda {display:none;} #reservas #listaHorarios {grid-template-columns:repeat(3,minmax(0,1fr))!important;}}
+@media (max-width:650px) {#reservas.dz-vista.dz-activa {overflow-y:auto!important;} #reservas .reserva-layout.dz-reserva-nueva {display:flex!important; flex-direction:column; overflow:visible; flex:0 0 auto;} #reservas .reserva-layout.dz-reserva-nueva>.panel {height:auto!important; overflow:visible!important;} #reservas #panelHorarios {height:240px; flex:auto;} #reservas #listaHorarios {grid-template-columns:repeat(3,minmax(0,1fr))!important;} }
+
+/* =======================================================
+   MIS RESERVAS - TABLA SIN DESPLAZAMIENTO, CON PAGINACIÓN
+   ======================================================= */
+#misReservas.dz-vista.dz-activa {overflow:hidden!important; gap:10px;}
+#misReservas .titulo {margin-bottom:4px!important;}
+#misReservas .panel-mis-reservas {
+  max-width:1320px!important; width:100%!important; flex:1 1 0!important;
+  min-height:0!important; height:auto!important; margin:0 auto!important;
+  overflow:hidden!important; display:flex; flex-direction:column;
+  padding:18px 22px!important; gap:12px; border-radius:18px;
+}
+#misReservas .mis-reservas-cabecera {margin:0!important; flex:0 0 auto;}
+#misReservas .mis-reservas-cabecera h3 {font-size:19px;}
+#misReservas #listaMisReservas {display:flex; flex:1 1 0; min-height:0; flex-direction:column; gap:12px; overflow:hidden!important;}
+#misReservas .dz-tabla-reservas {display:grid; grid-template-rows:36px repeat(4,minmax(0,1fr)); flex:1 1 0; min-height:0; overflow:hidden; border:1px solid var(--borde); border-radius:12px; background:var(--panel-secundario);}
+#misReservas .dz-reserva-fila {display:grid; grid-template-columns:minmax(130px,1.5fr) minmax(90px,.95fr) minmax(75px,.7fr) minmax(110px,1.25fr) minmax(65px,.6fr) minmax(65px,.65fr) minmax(90px,.85fr); align-items:center; gap:12px; padding:6px 15px; border-bottom:1px solid var(--borde); min-height:0;}
+#misReservas .dz-reserva-fila:last-child {border-bottom:0;}
+#misReservas .dz-reserva-fila > span {font-size:13px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+#misReservas .dz-reserva-fila > span:first-child {font-weight:750;}
+#misReservas .dz-reserva-titulos {background:rgba(110,145,185,.13);}
+#misReservas .dz-reserva-titulos > span {font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--muted);}
+#misReservas .dz-reserva-fila .btn-cancelar {width:100%; padding:9px 7px; margin:0; border-radius:8px; font-size:12px; white-space:nowrap;}
+#misReservas .dz-paginacion-reservas {flex:0 0 auto; min-height:36px; display:flex; justify-content:space-between; align-items:center; gap:10px; color:var(--muted); font-size:12px;}
+#misReservas .dz-paginacion-controles {display:flex; align-items:center; gap:10px;}
+#misReservas .dz-paginacion-controles button {background:var(--panel-secundario); border:1px solid var(--borde); color:var(--texto); border-radius:8px; padding:7px 12px; font-size:12px; cursor:pointer;}
+#misReservas .dz-paginacion-controles button:disabled {opacity:.35; cursor:default;}
+#misReservas .sin-reservas {margin:auto;}
+@media(max-width:1000px) {
+ #misReservas .dz-reserva-fila {grid-template-columns:minmax(110px,1.4fr) minmax(82px,.9fr) minmax(65px,.7fr) minmax(90px,1.1fr) minmax(55px,.5fr) minmax(60px,.6fr) minmax(75px,.8fr);gap:6px;padding:5px 9px;}
+ #misReservas .dz-reserva-fila > span {font-size:11px;}
+}
+@media(max-width:650px) {
+ #misReservas .panel-mis-reservas {padding:12px!important;}
+ #misReservas .dz-reserva-fila {grid-template-columns:1.4fr 1fr .9fr; gap:3px 8px;}
+ #misReservas .dz-reserva-titulos {display:none;}
+ #misReservas .dz-tabla-reservas {grid-template-rows:repeat(4,minmax(0,1fr));}
+ #misReservas .dz-reserva-fila > span {font-size:11px;}
+ #misReservas .dz-reserva-fila > span:nth-child(4), #misReservas .dz-reserva-fila > span:nth-child(5), #misReservas .dz-reserva-fila > span:nth-child(6) {display:none;}
+ #misReservas .dz-reserva-fila > span:last-child {grid-column:1/-1;}
+ #misReservas .dz-paginacion-reservas {font-size:10px;}
+}
+
+/* ==========================================================
+   MINIJUEGO: PANTALLA COMPLETA SIN DESPLAZAMIENTO INTERNO
+   ========================================================== */
+@media (min-width:801px) {
+ #minijuego.dz-vista.dz-activa {display:flex!important;flex-direction:column;gap:10px;overflow:hidden!important;padding:16px clamp(22px,4vw,55px) 18px!important;}
+ #minijuego .titulo {flex:0 0 auto;margin:0 0 3px!important;}
+ #minijuego .titulo>span {font-size:11px;}
+ #minijuego .titulo h2 {font-size:clamp(24px,2.45vw,34px);margin:3px 0!important;line-height:1.05;}
+ #minijuego .titulo p {font-size:13px;margin:0!important;}
+ #minijuego .juego-layout {display:grid!important;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)!important;gap:16px!important;width:100%;max-width:1320px;flex:1 1 0!important;min-height:0!important;margin:0 auto!important;overflow:hidden!important;align-items:stretch;}
+ #minijuego .juego-layout>.panel {min-height:0!important;height:100%!important;overflow:hidden!important;padding:15px 20px!important;border-radius:16px;}
+ #minijuego .juego-instrucciones {display:flex;flex-direction:column;justify-content:space-between;gap:5px;}
+ #minijuego .juego-instrucciones h3 {font-size:clamp(19px,1.8vw,25px)!important;line-height:1.05!important;margin:0!important;}
+ #minijuego .juego-instrucciones>p {font-size:12px!important;line-height:1.35!important;margin:0!important;}
+ #minijuego .juego-marcador {gap:9px!important;margin:3px 0!important;}
+ #minijuego .juego-marcador>div {padding:8px 5px!important;border-radius:10px;}
+ #minijuego .juego-marcador span {font-size:9px!important;margin-bottom:4px!important;}
+ #minijuego .juego-marcador strong {font-size:clamp(27px,3.3vh,39px)!important;}
+ #minijuego #juegoIniciar {min-height:34px!important;padding:7px 10px!important;font-size:12px!important;margin:0!important;}
+ #minijuego #juegoMensaje {min-height:17px!important;margin:0!important;font-size:11px!important;line-height:1.25!important;}
+ #minijuego .juego-ayuda {margin:0!important;font-size:10px!important;line-height:1.25!important;}
+ #minijuego .juego-controles {margin:0!important;gap:8px!important;}
+ #minijuego .juego-controles button {min-height:37px!important;padding:5px 6px!important;font-size:11px!important;display:flex;align-items:center;justify-content:center;gap:6px;}
+ #minijuego .juego-controles button i {font-size:16px!important;margin:0!important;}
+ #minijuego .juego-escenario {display:flex;flex-direction:column;justify-content:center;gap:8px;}
+ #minijuego #juegoCampo {height:auto!important;flex:1 1 0;min-height:0!important;max-height:100%!important;}
+ #minijuego .juego-pie {flex:0 0 auto;margin:0!important;font-size:11px!important;line-height:1.25!important;text-align:center;}
+}
+@media (min-width:801px) and (max-height:700px) {
+ #minijuego.dz-vista.dz-activa {padding-top:10px!important;padding-bottom:10px!important;gap:6px;}
+ #minijuego .juego-layout>.panel {padding:10px 14px!important;}
+ #minijuego .juego-instrucciones h3 {font-size:19px!important;}
+ #minijuego .juego-instrucciones>p {font-size:11px!important;}
+ #minijuego .juego-marcador>div {padding:5px!important;}
+ #minijuego .juego-marcador strong {font-size:28px!important;}
+ #minijuego .juego-ayuda {font-size:9px!important;}
+}
+
+/* ==========================================
+   NAVEGACIÓN ADAPTABLE: ESCRITORIO / MÓVIL
+   ========================================== */
+@media (min-width: 801px) {
+    body.dz-aplicacion .header #btnMenu {
+        display: none !important;
+    }
+    body.dz-aplicacion .header #menuNavegacion {
+        display: none !important;
+    }
+    body.dz-aplicacion .dz-navegacion {
+        display: flex !important;
+    }
+}
+@media (max-width: 800px) {
+    body.dz-aplicacion .header #btnMenu {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    body.dz-aplicacion .dz-navegacion {
+        display: none !important;
+    }
+    body.dz-aplicacion .header #menuNavegacion {
+        z-index: 10000;
+        max-width: calc(100vw - 24px);
+    }
+}
+
+
+/* =============================================================
+   DEPORZONE | IDENTIDAD ROJO CARMIN / CARBON
+   Mantiene intacta la estructura, el comportamiento y el responsive.
+   ============================================================= */
+body, body.tema-cesped, body.tema-sintetico, body.tema-cemento, body.tema-parquet {
+  --acento: #ff3658;
+  --fondo: #090d16;
+  --panel: #171e2c;
+  --panel-secundario: #101725;
+  --borde: #303849;
+  --header: #090e18;
+  --campo: #0f1623;
+  --texto: #f8f9fd;
+  --muted: #b2bdcd;
+}
+body.modo-claro, body.modo-claro.tema-cesped, body.modo-claro.tema-sintetico,
+body.modo-claro.tema-cemento, body.modo-claro.tema-parquet {
+  --acento: #c91c3c;
+  --fondo: #f6f3f5;
+  --panel: #ffffff;
+  --panel-secundario: #f5edf0;
+  --borde: #e1d7dd;
+  --header: #ffffff;
+  --campo: #fff9fb;
+  --texto: #222432;
+  --muted: #626978;
+}
+/* Fondos interactivos diferenciados por superficie, con identidad deportiva roja */
+body:not(.modo-claro) .fondo-cesped {
+ background: radial-gradient(ellipse at 80% 15%,rgba(55,186,106,.42),transparent 55%),linear-gradient(135deg,#0a1118,#14382c 58%,#361c29) !important;
+}
+body:not(.modo-claro) .fondo-sintetico {
+ background: radial-gradient(ellipse at 80% 15%,rgba(31,190,212,.43),transparent 55%),linear-gradient(135deg,#0b1220,#123c4b 58%,#302035) !important;
+}
+body:not(.modo-claro) .fondo-cemento {
+ background: radial-gradient(ellipse at 80% 15%,rgba(169,177,195,.32),transparent 55%),linear-gradient(135deg,#10131c,#323747 58%,#40222e) !important;
+}
+body:not(.modo-claro) .fondo-parquet {
+ background: radial-gradient(ellipse at 80% 15%,rgba(230,154,77,.42),transparent 55%),linear-gradient(135deg,#1b1216,#5b3429 58%,#4a1e29) !important;
+}
+body.modo-claro .fondo-cesped {
+ background: radial-gradient(ellipse at 80% 15%,rgba(90,194,123,.25),transparent 55%),linear-gradient(135deg,#fbfafa,#e2f2e9) !important;
+}
+body.modo-claro .fondo-sintetico {
+ background: radial-gradient(ellipse at 80% 15%,rgba(63,187,210,.24),transparent 55%),linear-gradient(135deg,#fbfafa,#e2f1f6) !important;
+}
+body.modo-claro .fondo-cemento {
+ background: radial-gradient(ellipse at 80% 15%,rgba(145,154,173,.22),transparent 55%),linear-gradient(135deg,#fbfafa,#e7e9ef) !important;
+}
+body.modo-claro .fondo-parquet {
+ background: radial-gradient(ellipse at 80% 15%,rgba(211,146,78,.23),transparent 55%),linear-gradient(135deg,#fbfafa,#f6e7dc) !important;
+}
+body:not(.modo-claro) .seccion,
+body:not(.modo-claro) .seccion-reservas,
+body:not(.modo-claro) .seccion-efectos,
+body:not(.modo-claro) #misReservas,
+body:not(.modo-claro) #canchas,
+body:not(.modo-claro) #reservas,
+body:not(.modo-claro) #minijuego {
+ background: radial-gradient(ellipse at 85% 8%,rgba(225,39,69,.32),transparent 54%),
+ linear-gradient(120deg,#101321 0%,#271323 60%,#3e1524 100%) !important;
+}
+body.modo-claro .seccion,
+body.modo-claro .seccion-reservas,
+body.modo-claro .seccion-efectos,
+body.modo-claro #misReservas,
+body.modo-claro #canchas,
+body.modo-claro #reservas,
+body.modo-claro #minijuego {
+ background: radial-gradient(ellipse at 85% 8%,rgba(244,83,109,.14),transparent 54%),
+ linear-gradient(120deg,#fff9fb,#f5e8ec) !important;
+}
+/* Marca y controles principales */
+body .btn-verde, body:not(.modo-claro) .btn-verde,
+body .filtro.activo, body .tab-cancha.activo,
+body .dz-navegacion button.activo,
+body .dz-navegacion .activo,
+body #juegoIniciar, body #juegoDisparar {
+ background: linear-gradient(125deg,#ff4b63,#e82146) !important;
+ color: #fff !important;
+ border-color: transparent !important;
+ box-shadow: 0 5px 16px rgba(199,24,57,.17);
+}
+body .btn-verde:hover, body #juegoIniciar:hover,
+body #juegoDisparar:hover {
+ background: linear-gradient(125deg,#ff6577,#ed2e4e) !important;
+ box-shadow: 0 8px 22px rgba(234,34,68,.30);
+ transform: translateY(-1px);
+}
+body .logo span, body .hero h1 em { color:var(--acento) !important; }
+body .precio, body .precio strong {color:var(--acento) !important;}
+body .filtro:hover, body .tab-cancha:hover {border-color:var(--acento) !important;}
+/* Interruptor premium de tema: se reutiliza el boton y JS existentes */
+body .header .btn-tema {
+ position:relative;
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:10px;
+ min-width:158px;
+ height:44px;
+ padding:5px 14px 5px 6px;
+ border:1px solid rgba(255,99,125,.36);
+ border-radius:999px;
+ background:linear-gradient(115deg,#1b2334,#272032) !important;
+ color:#f9f9fc !important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 6px 18px rgba(0,0,0,.13);
+ font-size:12px;
+ font-weight:750;
+ letter-spacing:.01em;
+ transition:background .25s,border-color .25s,box-shadow .25s,transform .25s;
+}
+body .header .btn-tema i {
+ display:grid;
+ place-items:center;
+ flex:0 0 33px;
+ width:33px;
+ height:33px;
+ margin:0;
+ border-radius:50%;
+ background:linear-gradient(145deg,#ff667d,#df2147);
+ color:#fff !important;
+ font-size:17px;
+ box-shadow:0 3px 12px rgba(232,33,70,.35);
+ transition:transform .35s ease,background .3s;
+}
+body .header .btn-tema:hover {
+ border-color:#ff6880;
+ box-shadow:0 0 0 3px rgba(255,54,88,.12),0 7px 20px rgba(0,0,0,.15);
+ transform:translateY(-1px);
+}
+body .header .btn-tema:hover i {transform:rotate(-16deg) scale(1.06);}
+body.modo-claro .header .btn-tema {
+ background:linear-gradient(115deg,#fff,#fff0f3) !important;
+ color:#812239 !important;
+ border-color:#f2bec8;
+}
+body.modo-claro .header .btn-tema i {
+ background:linear-gradient(145deg,#ffba64,#ff7850);
+ box-shadow:0 3px 12px rgba(240,135,59,.25);
+}
+/* Accesibilidad: indicadores y campos con enfoque visible */
+body button:focus-visible, body a:focus-visible, body input:focus-visible,
+body select:focus-visible {outline:2px solid var(--acento);outline-offset:2px;}
+@media(max-width:800px) {
+ body .header .btn-tema {min-width:44px;padding:5px;gap:5px;}
+ body .header .btn-tema i {flex-basis:32px;width:32px;height:32px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ body .header .btn-tema,body .header .btn-tema i {transition:none;}
+}
+
+/* ==========================================================
+   INTERRUPTOR iOS: OSCURO IZQUIERDA / CLARO DERECHA
+   Compatible con el JavaScript original de #btnTema.
+   ========================================================== */
+body .header #btnTema.btn-tema {
+  position: relative;
+  width: 142px;
+  min-width: 142px;
+  height: 46px;
+  padding: 0 12px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.2);
+  background: linear-gradient(120deg,#18233d,#303755) !important;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,.25),0 5px 16px rgba(0,0,0,.16);
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
+  transform: none;
+}
+body .header #btnTema.btn-tema i {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  border-radius: 50%;
+  background: #e8efff !important;
+  color: #6277bd !important; /* luna plateada azulada */
+  font-size: 19px;
+  box-shadow: 0 2px 9px rgba(0,0,0,.25),inset 0 1px 1px #fff;
+  transform: translateX(0) !important;
+  transition: left .32s cubic-bezier(.2,.8,.2,1),background .3s,color .3s;
+}
+body .header #btnTema.btn-tema span {
+  display: block;
+  padding-left: 29px;
+  color: #e7edff;
+  font-size: 12px;
+  font-weight: 750;
+  white-space: nowrap;
+  transition: padding .3s,color .3s;
+}
+body.modo-claro .header #btnTema.btn-tema {
+  background: linear-gradient(120deg,#fff2cf,#ffe2a4) !important;
+  border-color: #f6c66c;
+  box-shadow: inset 0 2px 5px rgba(162,98,15,.12),0 5px 16px rgba(0,0,0,.08);
+}
+body.modo-claro .header #btnTema.btn-tema i {
+  left: calc(100% - 39px);
+  background: #fff7d8 !important;
+  color: #f5a500 !important; /* sol amarillo dorado */
+  box-shadow: 0 2px 9px rgba(187,112,0,.18),inset 0 1px 1px #fff;
+}
+body.modo-claro .header #btnTema.btn-tema span {
+  padding-left: 0;
+  padding-right: 27px;
+  color: #815013;
+}
+body .header #btnTema.btn-tema:hover {
+  border-color: #f8b84e;
+  box-shadow: 0 0 0 3px rgba(248,184,78,.14),0 5px 16px rgba(0,0,0,.13);
+  transform: none;
+}
+@media (max-width: 800px) {
+  body .header #btnTema.btn-tema { width: 142px; min-width: 142px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .header #btnTema.btn-tema,
+  body .header #btnTema.btn-tema i,
+  body .header #btnTema.btn-tema span { transition: none; }
+}
+
+
+/* =========================================================
+   CORRECCION DEFINITIVA: FONDO REACTIVO EN CANCHAS
+   El fondo de la vista ya no tapa las capas animadas
+   que el JavaScript cambia al pasar por cada tarjeta.
+   ========================================================= */
+body.dz-aplicacion .dz-contenido > #canchas.dz-vista,
+body.dz-aplicacion:not(.modo-claro) .dz-contenido > #canchas.dz-vista,
+body.dz-aplicacion.modo-claro .dz-contenido > #canchas.dz-vista {
+    background: transparent !important;
+    background-image: none !important;
+}
+body.dz-aplicacion .dz-contenido {
+    background: transparent !important;
+}
+/* La capa de color ocupa toda la pantalla detrás del contenido. */
+body.dz-aplicacion #fondoInteractivo {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1;
+    z-index: 0;
+}
+body.dz-aplicacion #capaFondoActual {
+    opacity: 1;
+}
+
+/* ==========================================================
+   DEPORZONE - FONDOS DE CANCHAS DE ALTO CONTRASTE
+   Cuatro atmosferas distintas sobre la identidad rojo/negro.
+   No modifica las tarjetas, el interruptor ni el JS.
+   ========================================================== */
+body:not(.modo-claro) .capa-fondo.fondo-cesped {
+ background: radial-gradient(ellipse at 75% 28%,rgba(110,255,81,.65),transparent 57%),linear-gradient(125deg,#060d0b 4%,#086e37 54%,#09120e 100%) !important;
+}
+body:not(.modo-claro) .capa-fondo.fondo-sintetico {
+ background: radial-gradient(ellipse at 75% 28%,rgba(49,117,255,.72),transparent 56%),linear-gradient(125deg,#090b1d 4%,#1736a4 54%,#0a0d24 100%) !important;
+}
+body:not(.modo-claro) .capa-fondo.fondo-cemento {
+ background: radial-gradient(ellipse at 75% 28%,rgba(232,237,248,.66),transparent 57%),linear-gradient(125deg,#171820 4%,#667083 54%,#191b22 100%) !important;
+}
+body:not(.modo-claro) .capa-fondo.fondo-parquet {
+ background: radial-gradient(ellipse at 75% 28%,rgba(255,178,59,.72),transparent 57%),linear-gradient(125deg,#1b0e09 4%,#9a451b 54%,#23100c 100%) !important;
+}
+body.modo-claro .capa-fondo.fondo-cesped {
+ background: radial-gradient(ellipse at 75% 28%,rgba(82,230,93,.53),transparent 57%),linear-gradient(125deg,#f6fff5 4%,#a7e8b5 60%,#eaffed 100%) !important;
+}
+body.modo-claro .capa-fondo.fondo-sintetico {
+ background: radial-gradient(ellipse at 75% 28%,rgba(63,125,255,.49),transparent 57%),linear-gradient(125deg,#f6f8ff 4%,#a8c0ff 60%,#ecf1ff 100%) !important;
+}
+body.modo-claro .capa-fondo.fondo-cemento {
+ background: radial-gradient(ellipse at 75% 28%,rgba(114,124,146,.43),transparent 57%),linear-gradient(125deg,#ffffff 4%,#bac0ca 60%,#f2f3f6 100%) !important;
+}
+body.modo-claro .capa-fondo.fondo-parquet {
+ background: radial-gradient(ellipse at 75% 28%,rgba(255,162,56,.53),transparent 57%),linear-gradient(125deg,#fffaf4 4%,#f3b77e 60%,#fff0df 100%) !important;
+}
+
+
+/* ==========================================================
+   PAGO QR - IDENTIDAD ROJO / NEGRO / BLANCO
+   Ventana ajustada al alto visible y temporizador persistente
+   ========================================================== */
+#ventanaPagoTemporizado {
+  display:none;
+  position:fixed!important;
+  inset:0!important;
+  z-index:99999!important;
+  align-items:center;
+  justify-content:center;
+  padding:12px!important;
+  background:rgba(4,5,9,.88)!important;
+  backdrop-filter:blur(6px);
+  overflow:hidden;
+}
+#ventanaPagoTemporizado .dz-qr-dialogo {
+  position:relative;
+  width:min(420px,100%);
+  max-height:calc(100dvh - 24px);
+  box-sizing:border-box;
+  overflow-y:auto;
+  padding:clamp(14px,2.2vh,23px) 24px 18px;
+  border-radius:20px;
+  border:1px solid rgba(255,80,99,.55);
+  background:linear-gradient(145deg,#1e202b,#101117);
+  color:#fff;
+  text-align:center;
+  box-shadow:0 24px 75px rgba(0,0,0,.6),0 0 35px rgba(226,35,64,.13);
+  scrollbar-width:thin;
+}
+#ventanaPagoTemporizado .dz-qr-dialogo h2 {
+  color:#ff4d67!important;
+  font-size:clamp(21px,3vh,27px);
+  margin:0 32px 7px;
+  line-height:1.1;
+}
+#ventanaPagoTemporizado .dz-qr-descripcion {
+  color:#e3e5eb;
+  font-size:13px;
+  line-height:1.35;
+  margin:0 auto 12px;
+  max-width:335px;
+}
+#ventanaPagoTemporizado .dz-qr-cerrar {
+  position:absolute;
+  top:10px;
+  right:12px;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid #535765;
+  background:#292c39;
+  color:white;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+}
+#ventanaPagoTemporizado .dz-qr-cerrar:hover { background:#c92b47; border-color:#ff6a80; }
+#ventanaPagoTemporizado .dz-qr-imagen {
+  width:fit-content;
+  padding:9px;
+  border-radius:13px;
+  margin:0 auto 9px;
+  background:#fff;
+}
+#ventanaPagoTemporizado .dz-qr-imagen img {
+  display:block;
+  width:clamp(105px, min(21vh, 175px), 175px);
+  height:auto;
+  aspect-ratio:1;
+}
+#ventanaPagoTemporizado .dz-qr-aviso {
+  color:#ff7185;
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35;
+  margin:0 0 6px;
+}
+#ventanaPagoTemporizado .dz-qr-aviso small {color:#bfc3cd;font-size:10px;}
+#ventanaPagoTemporizado .dz-qr-reloj {
+  color:#ff4d67;
+  font-size:clamp(35px,6vh,50px);
+  font-family:ui-monospace,Consolas,monospace;
+  font-weight:900;
+  letter-spacing:.04em;
+  line-height:1.05;
+  margin:3px 0;
+}
+#ventanaPagoTemporizado .dz-qr-mensaje { color:#bfc3cd;font-size:12px;margin:4px 0 12px; }
+#ventanaPagoTemporizado .dz-qr-confirmar,
+#ventanaPagoTemporizado .dz-qr-cancelar {
+  width:100%;
+  padding:11px 14px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+}
+#ventanaPagoTemporizado .dz-qr-confirmar {border:0;background:linear-gradient(120deg,#ed2548,#ff5365);color:#fff;margin-bottom:8px;}
+#ventanaPagoTemporizado .dz-qr-cancelar {background:transparent;border:1px solid #697080;color:#e5e6ec;}
+#ventanaPagoTemporizado .dz-qr-reloj.dz-qr-urgente {color:#ffb43d!important;}
+#dzEstadoPagoQR[hidden] {display:none!important;}
+#dzEstadoPagoQR {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  margin:8px 0;
+  background:rgba(230,37,70,.12);
+  border:1px solid rgba(240,67,91,.65);
+  border-radius:12px;
+  color:var(--texto,#fff);
+}
+#dzEstadoPagoQR .dz-qr-estado-texto {display:flex;flex-direction:column;gap:1px;min-width:0;}
+#dzEstadoPagoQR .dz-qr-estado-etiqueta {color:#ff6076;font-size:10px;font-weight:800;letter-spacing:.07em;}
+#dzEstadoPagoQR #dzTiempoEnPagina {color:#ff4d67;font-size:22px;line-height:1.05;font-variant-numeric:tabular-nums;}
+#dzEstadoPagoQR small {font-size:10px;line-height:1.2;}
+#dzEstadoPagoQR .dz-qr-reabrir {background:#d92d4d;color:#fff;border:0;border-radius:9px;padding:9px 12px;font-weight:800;font-size:12px;cursor:pointer;white-space:nowrap;}
+#dzEstadoPagoQR .dz-qr-urgente {color:#ffb43d!important;}
+body.modo-claro #dzEstadoPagoQR {background:#fff1f2;color:#25232b;}
+@media(max-width:600px){
+ #ventanaPagoTemporizado .dz-qr-dialogo{padding:13px 15px;}
+ #dzEstadoPagoQR{flex-wrap:wrap;}
+}
+@media(max-height:650px){
+ #ventanaPagoTemporizado .dz-qr-dialogo{padding:9px 16px;}
+ #ventanaPagoTemporizado .dz-qr-imagen img{width:105px;}
+ #ventanaPagoTemporizado .dz-qr-descripcion{font-size:11px;margin-bottom:5px;}
+ #ventanaPagoTemporizado .dz-qr-mensaje{margin:2px 0 5px;}
+}
+/* Estado QR: se mantiene dentro del flujo del formulario, debajo del resumen. */
+@media (min-width:901px) {
+  #reservas #dzEstadoPagoQR:not([hidden]) {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+    flex: 0 0 auto;
+    padding: 6px 10px;
+  }
+  #reservas #dzEstadoPagoQR .dz-qr-estado-texto small {display:none;}
+  #reservas #dzEstadoPagoQR .dz-qr-estado-etiqueta {font-size:9px;}
+  #reservas #dzEstadoPagoQR #dzTiempoEnPagina {font-size:18px;}
+  #reservas #dzEstadoPagoQR .dz-qr-reabrir {font-size:10px;padding:8px;white-space:normal;max-width:115px;}
+  #reservas #resumenReserva:has(+ #dzEstadoPagoQR:not([hidden])) {
+    flex: 1 1 0;
+  }
+}
+
+/* CORRECCION FINAL: el resumen y el aviso QR son bloques separados.
+   Ninguno se superpone ni reduce la altura del otro. */
+@media (min-width: 901px) {
+  #reservas #formReserva { gap: 6px !important; }
+  #reservas #resumenReserva,
+  #reservas #resumenReserva:has(+ #dzEstadoPagoQR:not([hidden])) {
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 105px !important;
+    overflow: visible !important;
+    align-content: center !important;
+    gap: 2px 12px !important;
+    padding: 7px 12px !important;
+  }
+  #reservas #resumenReserva > div { padding: 1px 0 !important; }
+  #reservas #resumenReserva > div.total { padding-top: 3px !important; }
+  #reservas #dzEstadoPagoQR:not([hidden]) {
+    position: relative !important;
+    display: flex !important;
+    flex: 0 0 auto !important;
+    order: 2;
+    min-height: 44px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 5px 11px !important;
+    transform: none !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+  #reservas #resumenReserva { order: 1; }
+  #reservas #mensajeError { order: 3; }
+  #reservas .btn-confirmar { order: 4; }
+  #reservas #dzEstadoPagoQR #dzTiempoEnPagina {font-size:18px!important;}
+}
+
+
+/* QR PENDIENTE: en el espacio libre del encabezado, no sobre el formulario */
+@media (min-width: 901px) {
+  #reservas .dz-reserva-encabezado {
+    display: grid !important;
+    grid-template-columns: minmax(250px, 1fr) minmax(245px, 360px) minmax(140px, 1fr) !important;
+    align-items: center !important;
+    column-gap: 18px !important;
+  }
+  #reservas .dz-reserva-encabezado > .titulo {grid-column:1; min-width:0;}
+  #reservas .dz-reserva-encabezado > #dzEstadoPagoQR:not([hidden]) {
+    grid-column:2;
+    justify-self:stretch;
+    position:static !important;
+    inset:auto !important;
+    transform:none !important;
+    display:flex !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:360px !important;
+    height:auto !important;
+    min-height:46px !important;
+    padding:7px 11px !important;
+    margin:0 !important;
+    box-shadow:none !important;
+    z-index:auto !important;
+    order:initial !important;
+  }
+  #reservas .dz-reserva-encabezado > #dzVolverCanchas {grid-column:3;justify-self:end;}
+  #reservas .dz-reserva-encabezado > #dzEstadoPagoQR .dz-qr-reabrir {
+    white-space:normal;
+    max-width:125px;
+  }
+}
+@media (max-width: 900px) {
+  #reservas .dz-reserva-encabezado > #dzEstadoPagoQR:not([hidden]) {
+    position:static !important;
+    transform:none !important;
+    width:auto !important;
+    min-width:0;
+    margin:0 !important;
+    flex:1 1 210px;
+  }
+  #reservas .dz-reserva-encabezado {flex-wrap:wrap;}
+}
