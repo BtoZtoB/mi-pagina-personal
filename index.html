@@ -1,17 +1,16 @@
 
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bryan Zelaya | Página Personal</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Bryan Zelaya | Página Personal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
         /* Fotografía de perfil */
         .encabezado .icono-perfil {
             width: 120px;
@@ -78,921 +77,677 @@
             margin-left: 0;
         }
     </style>
-
-    <script src="script.js" defer></script>
+<script defer="" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script defer="" src="script.js"></script>
 </head>
 <body>
-
-    <!-- MENÚ LATERAL -->
-    <nav class="navbar navbar-dark navbar-personal sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#inicio">
-                <i class="bi bi-lightning-charge-fill"></i>
+<div class="pwa-container screen-app">
+<!-- MENÚ LATERAL -->
+<nav class="navbar navbar-dark navbar-personal app-header">
+<div class="container">
+<a class="navbar-brand" data-screen="inicio" href="#inicio">
+<i class="bi bi-lightning-charge-fill"></i>
                 Bryan Zelaya
             </a>
+<button aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú" class="navbar-toggler menu-toggle" id="hamburgerBtn" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#menu"
-                aria-controls="menu"
-                aria-label="Abrir menú">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<span class="screen-name" id="screenName">Inicio</span></div>
+</nav><button aria-label="Cerrar menú" hidden="" id="menuBackdrop" type="button"></button><div aria-label="Todas las secciones" aria-labelledby="menuTitulo" class="nav-menu text-bg-dark" id="navMenu" role="navigation" style="display:none;" tabindex="-1"><div class="menu-heading"><strong>Explora mi página</strong><button aria-label="Cerrar menú" class="icon-button" id="cerrarMenu" type="button"><i class="bi bi-x-lg"></i></button></div><div class="menu-grid"><button class="menu-link" data-screen="inicio" type="button"><i class="bi bi-house"></i>Inicio</button><button class="menu-link" data-screen="sobre-mi" type="button"><i class="bi bi-person-badge"></i>Sobre mí</button><button class="menu-link" data-screen="pasatiempos" type="button"><i class="bi bi-controller"></i>Pasatiempos</button><button class="menu-link" data-screen="intereses" type="button"><i class="bi bi-lightbulb"></i>Intereses</button><button class="menu-link" data-screen="horario" type="button"><i class="bi bi-calendar-week"></i>Horario</button><button class="menu-link" data-screen="musica" type="button"><i class="bi bi-music-note-beamed"></i>Música</button><button class="menu-link" data-screen="juegos" type="button"><i class="bi bi-dpad"></i>Juegos</button><button class="menu-link" data-screen="filtros" type="button"><i class="bi bi-funnel"></i>Filtro de 3 capas</button><button class="menu-link" data-screen="grafico" type="button"><i class="bi bi-bar-chart"></i>Actividades</button><button class="menu-link" data-screen="interactividad" type="button"><i class="bi bi-hand-index"></i>Saludo</button><button class="menu-link" data-screen="contacto" type="button"><i class="bi bi-envelope"></i>Contacto</button><button class="menu-link" data-screen="redes" type="button"><i class="bi bi-share"></i>Redes</button></div><button aria-pressed="false" class="boton-tema" id="themeBtn" type="button">
+<i class="bi bi-moon-stars"></i>
+<span>Modo oscuro</span>
+</button></div>
+<!-- ENCABEZADO -->
 
-            <div class="offcanvas offcanvas-end text-bg-dark"
-                 tabindex="-1"
-                 id="menu"
-                 aria-labelledby="menuTitulo"
-                 style="--bs-offcanvas-width: 300px; background-color: #101b32 !important;">
+<!-- CARRUSEL -->
 
-                <div class="offcanvas-header border-bottom border-secondary">
-                    <h5 class="offcanvas-title fw-bold" id="menuTitulo">
-                        <i class="bi bi-list text-danger"></i>
-                        Menú
-                    </h5>
-
-                    <button type="button"
-                        class="btn-close btn-close-white"
-                        data-bs-dismiss="offcanvas"
-                        aria-label="Cerrar menú"></button>
-                </div>
-
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#inicio" data-bs-dismiss="offcanvas">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#sobre-mi" data-bs-dismiss="offcanvas">Sobre mí</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#pasatiempos" data-bs-dismiss="offcanvas">Pasatiempos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#intereses" data-bs-dismiss="offcanvas">Intereses</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#horario" data-bs-dismiss="offcanvas">Horario</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#musica" data-bs-dismiss="offcanvas">Música</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#juegos" data-bs-dismiss="offcanvas">Juegos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#grafico" data-bs-dismiss="offcanvas">Gráfico</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contacto" data-bs-dismiss="offcanvas">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#redes" data-bs-dismiss="offcanvas">Redes</a></li>
-                    </ul>
-
-                    <hr class="border-secondary">
-
-                    <button id="themeBtn" class="boton-tema" type="button" aria-pressed="false">
-                        <i class="bi bi-moon-stars"></i>
-                        <span>Modo oscuro</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ENCABEZADO -->
-    <header id="inicio" class="encabezado">
-        <div class="container text-center">
-            <div class="icono-perfil">
-                <img src="img/perfil.jpg"
-                     alt="Fotografía de Bryan Zelaya"
-                     class="foto-perfil">
-            </div>
-
-            <h1>Bryan Zelaya</h1>
-            <p class="subtitulo">Bienvenido a mi página personal</p>
-
-            <span class="etiqueta">
-                <i class="bi bi-laptop"></i>
+<main class="screen-stage"><section aria-label="Inicio" class="app-screen home-screen" id="inicio" tabindex="-1"><header class="encabezado home-profile">
+<div class="container text-center">
+<div class="icono-perfil">
+<img alt="Fotografía de Bryan Zelaya" class="foto-perfil" src="img/perfil.jpg"/>
+</div>
+<h1>Bryan Zelaya</h1>
+<p class="subtitulo">Bienvenido a mi página personal</p>
+<span class="etiqueta">
+<i class="bi bi-laptop"></i>
                 Diseño Web II • 2026
             </span>
-        </div>
-    </header>
-
-    <!-- CARRUSEL -->
-    <section class="carrusel-contenedor">
-        <div id="carruselFotos" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carruselFotos" data-bs-slide-to="0"
-                    class="active" aria-current="true" aria-label="Foto 1"></button>
-                <button type="button" data-bs-target="#carruselFotos" data-bs-slide-to="1"
-                    aria-label="Foto 2"></button>
-                <button type="button" data-bs-target="#carruselFotos" data-bs-slide-to="2"
-                    aria-label="Foto 3"></button>
-            </div>
-
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/foto1.jpg" class="d-block w-100" alt="Primera fotografía">
-                    <div class="carousel-caption">
-                        <h3>Bienvenido a mi página</h3>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="img/foto2.jpg" class="d-block w-100" alt="Segunda fotografía">
-                    <div class="carousel-caption">
-                        <h3>Mis gustos e intereses</h3>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="img/foto3.jpg" class="d-block w-100" alt="Tercera fotografía">
-                    <div class="carousel-caption">
-                        <h3>Conoce un poco más sobre mí</h3>
-                    </div>
-                </div>
-            </div>
-
-            <button class="carousel-control-prev" type="button"
-                data-bs-target="#carruselFotos" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-
-            <button class="carousel-control-next" type="button"
-                data-bs-target="#carruselFotos" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                <span class="visually-hidden">Siguiente</span>
-            </button>
-        </div>
-    </section>
-
-    <main class="contenedor-principal">
-
-        <!-- SOBRE MÍ -->
-        <section id="sobre-mi" class="seccion">
-            <h2><i class="bi bi-person-badge"></i> Sobre mí</h2>
-
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="tarjeta">
-                        <h3>Mi presentación</h3>
-                        <p>
+</div>
+</header><section class="carrusel-contenedor home-carousel">
+<div class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" id="carruselFotos">
+<div class="carousel-indicators">
+<button aria-current="true" aria-label="Foto 1" class="active" data-bs-slide-to="0" data-bs-target="#carruselFotos" type="button"></button>
+<button aria-label="Foto 2" data-bs-slide-to="1" data-bs-target="#carruselFotos" type="button"></button>
+<button aria-label="Foto 3" data-bs-slide-to="2" data-bs-target="#carruselFotos" type="button"></button>
+</div>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img alt="Primera fotografía" class="d-block w-100" src="img/foto1.jpg"/>
+<div class="carousel-caption">
+<h3>Bienvenido a mi página</h3>
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Segunda fotografía" class="d-block w-100" src="img/foto2.jpg"/>
+<div class="carousel-caption">
+<h3>Mis gustos e intereses</h3>
+</div>
+</div>
+<div class="carousel-item">
+<img alt="Tercera fotografía" class="d-block w-100" src="img/foto3.jpg"/>
+<div class="carousel-caption">
+<h3>Conoce un poco más sobre mí</h3>
+</div>
+</div>
+</div>
+<button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carruselFotos" type="button">
+<span class="carousel-control-prev-icon"></span>
+<span class="visually-hidden">Anterior</span>
+</button>
+<button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carruselFotos" type="button">
+<span class="carousel-control-next-icon"></span>
+<span class="visually-hidden">Siguiente</span>
+</button>
+</div>
+</section><div aria-label="Accesos a todas las secciones" class="home-shortcuts"><button class="shortcut" data-screen="sobre-mi" type="button"><i class="bi bi-person-badge"></i><span>Sobre mí</span></button><button class="shortcut" data-screen="pasatiempos" type="button"><i class="bi bi-controller"></i><span>Pasatiempos</span></button><button class="shortcut" data-screen="intereses" type="button"><i class="bi bi-lightbulb"></i><span>Intereses</span></button><button class="shortcut" data-screen="horario" type="button"><i class="bi bi-calendar-week"></i><span>Horario</span></button><button class="shortcut" data-screen="musica" type="button"><i class="bi bi-music-note-beamed"></i><span>Música</span></button><button class="shortcut" data-screen="juegos" type="button"><i class="bi bi-dpad"></i><span>Juegos</span></button><button class="shortcut" data-screen="filtros" type="button"><i class="bi bi-funnel"></i><span>Filtro de 3 capas</span></button><button class="shortcut" data-screen="grafico" type="button"><i class="bi bi-bar-chart"></i><span>Actividades</span></button><button class="shortcut" data-screen="interactividad" type="button"><i class="bi bi-hand-index"></i><span>Saludo</span></button><button class="shortcut" data-screen="contacto" type="button"><i class="bi bi-envelope"></i><span>Contacto</span></button><button class="shortcut" data-screen="redes" type="button"><i class="bi bi-share"></i><span>Redes</span></button></div></section>
+<!-- SOBRE MÍ -->
+<section class="app-screen seccion" hidden="True" id="sobre-mi" tabindex="-1">
+<h2><i class="bi bi-person-badge"></i> Sobre mí</h2>
+<div class="reading-deck" data-deck="sobre-mi">
+<div class="deck-item" hidden="True">
+<div class="tarjeta">
+<h3>Mi presentación</h3>
+<p>
                             Hola, mi nombre es Bryan Zelaya.
                             Esta es mi página personal, donde comparto
                             mis pasatiempos, gustos musicales,
                             videojuegos favoritos y actividades diarias.
                         </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="tarjeta">
-                        <h3>Mi objetivo</h3>
-                        <p>
+</div>
+</div>
+<div class="deck-item" hidden="True">
+<div class="tarjeta">
+<h3>Mi objetivo</h3>
+<p>
                             Quiero seguir aprendiendo, desarrollar nuevas
                             habilidades y mejorar mis conocimientos en
                             programación, tecnología y desarrollo web.
                         </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PASATIEMPOS -->
-        <section id="pasatiempos" class="seccion">
-            <h2><i class="bi bi-controller"></i> Mis pasatiempos</h2>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="tarjeta tarjeta-centrada">
-                        <i class="bi bi-film icono-tarjeta"></i>
-                        <h3>Películas y series</h3>
-                        <p>
+</div>
+</div>
+</div>
+<div class="pager" data-pager="sobre-mi"><button aria-label="Anterior" data-prev="sobre-mi" type="button">←</button><span aria-live="polite" data-count="sobre-mi"></span><button aria-label="Siguiente" data-next="sobre-mi" type="button">→</button></div></section>
+<!-- PASATIEMPOS -->
+<section class="app-screen seccion" hidden="True" id="pasatiempos" tabindex="-1">
+<h2><i class="bi bi-controller"></i> Mis pasatiempos</h2>
+<div class="reading-deck" data-deck="pasatiempos">
+<div class="deck-item" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<i class="bi bi-film icono-tarjeta"></i>
+<h3>Películas y series</h3>
+<p>
                             Me gusta ver películas y series para
                             entretenerme y relajarme durante mi tiempo libre.
                         </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="tarjeta tarjeta-centrada">
-                        <i class="bi bi-headphones icono-tarjeta"></i>
-                        <h3>Escuchar música</h3>
-                        <p>
+</div>
+</div>
+<div class="deck-item" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<i class="bi bi-headphones icono-tarjeta"></i>
+<h3>Escuchar música</h3>
+<p>
                             Disfruto escuchar mis géneros musicales
                             favoritos: Pop Rock, Trap y Rap.
                         </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="tarjeta tarjeta-centrada">
-                        <i class="bi bi-joystick icono-tarjeta"></i>
-                        <h3>Videojuegos</h3>
-                        <p>
+</div>
+</div>
+<div class="deck-item" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<i class="bi bi-joystick icono-tarjeta"></i>
+<h3>Videojuegos</h3>
+<p>
                             Me gusta jugar Valorant, Rocket League
                             y Fortnite durante mi tiempo libre.
                         </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- INTERESES -->
-        <section id="intereses" class="seccion">
-            <h2><i class="bi bi-lightbulb"></i> Mis intereses productivos</h2>
-
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="tarjeta">
-                        <h3><i class="bi bi-code-square"></i> Programación</h3>
-                        <p>
+</div>
+</div>
+</div>
+<div class="pager" data-pager="pasatiempos"><button aria-label="Anterior" data-prev="pasatiempos" type="button">←</button><span aria-live="polite" data-count="pasatiempos"></span><button aria-label="Siguiente" data-next="pasatiempos" type="button">→</button></div></section>
+<!-- INTERESES -->
+<section class="app-screen seccion" hidden="True" id="intereses" tabindex="-1">
+<h2><i class="bi bi-lightbulb"></i> Mis intereses productivos</h2>
+<div class="reading-deck" data-deck="intereses">
+<div class="deck-item" hidden="True">
+<div class="tarjeta">
+<h3><i class="bi bi-code-square"></i> Programación</h3>
+<p>
                             Me interesa aprender a desarrollar páginas web,
                             utilizar HTML, CSS y JavaScript, y conocer
                             nuevas herramientas tecnológicas.
                         </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="tarjeta">
-                        <h3><i class="bi bi-book"></i> Aprendizaje</h3>
-                        <p>
+</div>
+</div>
+<div class="deck-item" hidden="True">
+<div class="tarjeta">
+<h3><i class="bi bi-book"></i> Aprendizaje</h3>
+<p>
                             Me gusta adquirir nuevos conocimientos,
                             mejorar mis habilidades y aprender cosas
                             que me ayuden a crecer personalmente.
                         </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- HORARIO -->
-        <section id="horario" class="seccion">
-            <h2><i class="bi bi-calendar-week"></i> Mi horario diario</h2>
-
-            <p class="descripcion">
+</div>
+</div>
+</div>
+<div class="pager" data-pager="intereses"><button aria-label="Anterior" data-prev="intereses" type="button">←</button><span aria-live="polite" data-count="intereses"></span><button aria-label="Siguiente" data-next="intereses" type="button">→</button></div></section>
+<!-- HORARIO -->
+<section class="app-screen seccion" hidden="True" id="horario" tabindex="-1">
+<h2><i class="bi bi-calendar-week"></i> Mi horario diario</h2>
+<p class="descripcion">
                 Ejemplo de organización de mis actividades diarias.
                 Puedes consultar el horario desde Google Sheets.
             </p>
+<div class="schedule-card tarjeta" id="googleSheetsHorario"><i class="bi bi-calendar3"></i><h3>Mi horario en Google Sheets</h3><p>Consulta la hoja completa y actualizada.</p><a class="boton-personal" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEt1ed_06epRWC_ShI_zVeJJk34FGSS5rmfYQ0qTHkm4S_AfOmiB_uHbPhcgKS8Ri_9WfnMJUIyg53/pubhtml?widget=true&amp;headers=false" rel="noopener noreferrer" target="_blank">Abrir horario <i class="bi bi-box-arrow-up-right"></i></a><small>Se abre en otra pestaña.</small></div>
+</section>
+<!-- MÚSICA -->
+<section class="app-screen seccion" hidden="True" id="musica" tabindex="-1">
+<h2><i class="bi bi-music-note-beamed"></i> Mi música favorita</h2>
 
-            <div id="googleSheetsHorario"
-                 class="horario-sheets"
-                 data-sheet-url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEt1ed_06epRWC_ShI_zVeJJk34FGSS5rmfYQ0qTHkm4S_AfOmiB_uHbPhcgKS8Ri_9WfnMJUIyg53/pubhtml?widget=true&amp;headers=false">
 
-                <div id="sheetsPendiente" class="tarjeta">
-                    <h3><i class="bi bi-table"></i> Horario en Google Sheets</h3>
-                    <p>Cargando horario de actividades...</p>
-                </div>
 
-                <iframe id="sheetsFrame"
-                    title="Horario de actividades en Google Sheets"
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    style="display:none;">
-                </iframe>
-            </div>
-        </section>
 
-        <!-- MÚSICA -->
-        <section id="musica" class="seccion">
-            <h2><i class="bi bi-music-note-beamed"></i> Mi música favorita</h2>
 
-            <div class="row g-4 mb-4">
-                <div class="col-md-4">
-                    <div class="tarjeta tarjeta-centrada">
-                        <i class="bi bi-music-note-list icono-tarjeta"></i>
-                        <h3>Pop Rock</h3>
-                        <p>Me gusta la combinación de melodías pegadizas y la energía del rock.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="tarjeta tarjeta-centrada">
-                        <i class="bi bi-soundwave icono-tarjeta"></i>
-                        <h3>Trap</h3>
-                        <p>Disfruto sus ritmos urbanos, bajos intensos y estilo musical.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="tarjeta tarjeta-centrada">
-                        <i class="bi bi-mic icono-tarjeta"></i>
-                        <h3>Rap</h3>
-                        <p>Me gustan sus rimas, ritmo y manera de expresar ideas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="subtitulo-listado">Artistas y canciones por género</h3>
-
-            <p class="descripcion">
-                Selecciona un género musical para conocer artistas
-                y algunas canciones de ejemplo.
-            </p>
-
-            <div class="filtros-juegos filtros-musica">
-                <button type="button" class="boton-musica activo" data-genero="todos">Todos</button>
-                <button type="button" class="boton-musica" data-genero="poprock">Pop Rock</button>
-                <button type="button" class="boton-musica" data-genero="trap">Trap</button>
-                <button type="button" class="boton-musica" data-genero="rap">Rap</button>
-            </div>
-
-            <div class="row g-4" id="listaArtistas">
-
-                <!-- POP ROCK -->
-                <div class="col-md-4 artista-item" data-genero="poprock">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/coldplay.jpg" class="imagen-catalogo" alt="Coldplay">
-                        <h3>Coldplay</h3>
-                        <p>Pop Rock</p>
-                        <ul class="lista-canciones">
-                            <li>Viva la Vida</li>
-                            <li>Yellow</li>
-                            <li>Clocks</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-4 artista-item" data-genero="poprock">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/imagine-dragons.jpg" class="imagen-catalogo" alt="Imagine Dragons">
-                        <h3>Imagine Dragons</h3>
-                        <p>Pop Rock</p>
-                        <ul class="lista-canciones">
-                            <li>Believer</li>
-                            <li>Demons</li>
-                            <li>Radioactive</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-4 artista-item" data-genero="poprock">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/maroon-5.jpg" class="imagen-catalogo" alt="Maroon 5">
-                        <h3>Maroon 5</h3>
-                        <p>Pop Rock</p>
-                        <ul class="lista-canciones">
-                            <li>Memories</li>
-                            <li>Payphone</li>
-                            <li>Maps</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- TRAP -->
-                <div class="col-md-4 artista-item" data-genero="trap">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/travis-scott.jpg" class="imagen-catalogo" alt="Travis Scott">
-                        <h3>Travis Scott</h3>
-                        <p>Trap</p>
-                        <ul class="lista-canciones">
-                            <li>SICKO MODE</li>
-                            <li>goosebumps</li>
-                            <li>HIGHEST IN THE ROOM</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-4 artista-item" data-genero="trap">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/future.jpg" class="imagen-catalogo" alt="Future">
-                        <h3>Future</h3>
-                        <p>Trap</p>
-                        <ul class="lista-canciones">
-                            <li>Mask Off</li>
-                            <li>Life Is Good</li>
-                            <li>WAIT FOR U</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-4 artista-item" data-genero="trap">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/21-savage.jpg" class="imagen-catalogo" alt="21 Savage">
-                        <h3>21 Savage</h3>
-                        <p>Trap</p>
-                        <ul class="lista-canciones">
-                            <li>redrum</li>
-                            <li>Bank Account</li>
-                            <li>a lot</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- RAP -->
-                <div class="col-md-4 artista-item" data-genero="rap">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/eminem.jpg" class="imagen-catalogo" alt="Eminem">
-                        <h3>Eminem</h3>
-                        <p>Rap</p>
-                        <ul class="lista-canciones">
-                            <li>Lose Yourself</li>
-                            <li>Without Me</li>
-                            <li>Mockingbird</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-4 artista-item" data-genero="rap">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/kendrick-lamar.jpg" class="imagen-catalogo" alt="Kendrick Lamar">
-                        <h3>Kendrick Lamar</h3>
-                        <p>Rap</p>
-                        <ul class="lista-canciones">
-                            <li>HUMBLE.</li>
-                            <li>DNA.</li>
-                            <li>Alright</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-4 artista-item" data-genero="rap">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/artistas/j-cole.jpg" class="imagen-catalogo" alt="J. Cole">
-                        <h3>J. Cole</h3>
-                        <p>Rap</p>
-                        <ul class="lista-canciones">
-                            <li>No Role Modelz</li>
-                            <li>Middle Child</li>
-                            <li>Love Yourz</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VIDEOJUEGOS -->
-        <section id="juegos" class="seccion">
-            <h2><i class="bi bi-dpad"></i> Mis videojuegos favoritos</h2>
-
-            <p class="descripcion">
+<div aria-label="Contenido de música" class="segmented" role="group"><button aria-pressed="true" data-music="artistas" type="button">Artistas y canciones</button><button aria-pressed="false" data-music="generos" type="button">Géneros</button></div><div class="music-panel" id="musica-artistas"><div class="filtros-juegos filtros-musica">
+<button class="boton-musica activo" data-genero="todos" type="button">Todos</button>
+<button class="boton-musica" data-genero="poprock" type="button">Pop Rock</button>
+<button class="boton-musica" data-genero="trap" type="button">Trap</button>
+<button class="boton-musica" data-genero="rap" type="button">Rap</button>
+</div><div class="reading-deck" data-deck="artistas" id="listaArtistas">
+<!-- POP ROCK -->
+<div class="deck-item artista-item" data-genero="poprock" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Coldplay" class="imagen-catalogo" src="img/artistas/coldplay.jpg"/>
+<h3>Coldplay</h3>
+<p>Pop Rock</p>
+<ul class="lista-canciones">
+<li>Viva la Vida</li>
+<li>Yellow</li>
+<li>Clocks</li>
+</ul>
+</div>
+</div>
+<div class="deck-item artista-item" data-genero="poprock" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Imagine Dragons" class="imagen-catalogo" src="img/artistas/imagine-dragons.jpg"/>
+<h3>Imagine Dragons</h3>
+<p>Pop Rock</p>
+<ul class="lista-canciones">
+<li>Believer</li>
+<li>Demons</li>
+<li>Radioactive</li>
+</ul>
+</div>
+</div>
+<div class="deck-item artista-item" data-genero="poprock" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Maroon 5" class="imagen-catalogo" src="img/artistas/maroon-5.jpg"/>
+<h3>Maroon 5</h3>
+<p>Pop Rock</p>
+<ul class="lista-canciones">
+<li>Memories</li>
+<li>Payphone</li>
+<li>Maps</li>
+</ul>
+</div>
+</div>
+<!-- TRAP -->
+<div class="deck-item artista-item" data-genero="trap" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Travis Scott" class="imagen-catalogo" src="img/artistas/travis-scott.jpg"/>
+<h3>Travis Scott</h3>
+<p>Trap</p>
+<ul class="lista-canciones">
+<li>SICKO MODE</li>
+<li>goosebumps</li>
+<li>HIGHEST IN THE ROOM</li>
+</ul>
+</div>
+</div>
+<div class="deck-item artista-item" data-genero="trap" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Future" class="imagen-catalogo" src="img/artistas/future.jpg"/>
+<h3>Future</h3>
+<p>Trap</p>
+<ul class="lista-canciones">
+<li>Mask Off</li>
+<li>Life Is Good</li>
+<li>WAIT FOR U</li>
+</ul>
+</div>
+</div>
+<div class="deck-item artista-item" data-genero="trap" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="21 Savage" class="imagen-catalogo" src="img/artistas/21-savage.jpg"/>
+<h3>21 Savage</h3>
+<p>Trap</p>
+<ul class="lista-canciones">
+<li>redrum</li>
+<li>Bank Account</li>
+<li>a lot</li>
+</ul>
+</div>
+</div>
+<!-- RAP -->
+<div class="deck-item artista-item" data-genero="rap" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Eminem" class="imagen-catalogo" src="img/artistas/eminem.jpg"/>
+<h3>Eminem</h3>
+<p>Rap</p>
+<ul class="lista-canciones">
+<li>Lose Yourself</li>
+<li>Without Me</li>
+<li>Mockingbird</li>
+</ul>
+</div>
+</div>
+<div class="deck-item artista-item" data-genero="rap" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Kendrick Lamar" class="imagen-catalogo" src="img/artistas/kendrick-lamar.jpg"/>
+<h3>Kendrick Lamar</h3>
+<p>Rap</p>
+<ul class="lista-canciones">
+<li>HUMBLE.</li>
+<li>DNA.</li>
+<li>Alright</li>
+</ul>
+</div>
+</div>
+<div class="deck-item artista-item" data-genero="rap" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="J. Cole" class="imagen-catalogo" src="img/artistas/j-cole.jpg"/>
+<h3>J. Cole</h3>
+<p>Rap</p>
+<ul class="lista-canciones">
+<li>No Role Modelz</li>
+<li>Middle Child</li>
+<li>Love Yourz</li>
+</ul>
+</div>
+</div>
+</div><div class="pager" data-pager="artistas"><button aria-label="Artista anterior" data-prev="artistas" type="button">←</button><span aria-live="polite" data-count="artistas"></span><button aria-label="Artista siguiente" data-next="artistas" type="button">→</button></div></div><div class="music-panel" hidden="" id="musica-generos"><div class="reading-deck" data-deck="generos">
+<div class="deck-item" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<i class="bi bi-music-note-list icono-tarjeta"></i>
+<h3>Pop Rock</h3>
+<p>Me gusta la combinación de melodías pegadizas y la energía del rock.</p>
+</div>
+</div>
+<div class="deck-item" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<i class="bi bi-soundwave icono-tarjeta"></i>
+<h3>Trap</h3>
+<p>Disfruto sus ritmos urbanos, bajos intensos y estilo musical.</p>
+</div>
+</div>
+<div class="deck-item" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<i class="bi bi-mic icono-tarjeta"></i>
+<h3>Rap</h3>
+<p>Me gustan sus rimas, ritmo y manera de expresar ideas.</p>
+</div>
+</div>
+</div><div class="pager" data-pager="generos"><button aria-label="Género anterior" data-prev="generos" type="button">←</button><span aria-live="polite" data-count="generos"></span><button aria-label="Género siguiente" data-next="generos" type="button">→</button></div></div></section>
+<!-- VIDEOJUEGOS -->
+<section class="app-screen seccion" hidden="True" id="juegos" tabindex="-1">
+<h2><i class="bi bi-dpad"></i> Mis videojuegos favoritos</h2>
+<p class="descripcion">
                 Selecciona una categoría para filtrar los videojuegos.
             </p>
-
-            <div class="filtros-juegos">
-                <button class="boton-filtro activo" data-filtro="todos" type="button">Todos</button>
-                <button class="boton-filtro" data-filtro="shooter" type="button">Shooters</button>
-                <button class="boton-filtro" data-filtro="deportes" type="button">Deportes</button>
-                <button class="boton-filtro" data-filtro="aventura" type="button">Aventura</button>
-                <button class="boton-filtro" data-filtro="carreras" type="button">Carreras</button>
-                <button class="boton-filtro" data-filtro="estrategia" type="button">Estrategia</button>
-                <button class="boton-filtro" data-filtro="terror" type="button">Terror</button>
-            </div>
-
-            <div class="row g-4">
-
-                <!-- SHOOTERS -->
-                <div class="col-md-4 juego-item" data-categoria="shooter">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/valorant.jpg" class="imagen-catalogo" alt="Valorant">
-                        <h3>Valorant</h3>
-                        <p>Videojuego competitivo de disparos tácticos con agentes y habilidades especiales.</p>
-                        <span class="etiqueta-juego">Shooter táctico</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="deportes">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/rocket-league.jpg" class="imagen-catalogo" alt="Rocket League">
-                        <h3>Rocket League</h3>
-                        <p>Juego que combina fútbol y vehículos con partidos rápidos y competitivos.</p>
-                        <span class="etiqueta-juego">Deportes y conducción</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="shooter">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/fortnite.jpg" class="imagen-catalogo" alt="Fortnite">
-                        <h3>Fortnite</h3>
-                        <p>Videojuego multijugador de supervivencia, combate y estrategia.</p>
-                        <span class="etiqueta-juego">Battle Royale</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="shooter">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/counter-strike-2.jpg" class="imagen-catalogo" alt="Counter-Strike 2">
-                        <h3>Counter-Strike 2</h3>
-                        <p>Juego competitivo de disparos por equipos.</p>
-                        <span class="etiqueta-juego">Shooter táctico</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="shooter">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/apex-legends.jpg" class="imagen-catalogo" alt="Apex Legends">
-                        <h3>Apex Legends</h3>
-                        <p>Battle Royale con personajes de habilidades diferentes.</p>
-                        <span class="etiqueta-juego">Battle Royale</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="shooter">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/overwatch-2.jpg" class="imagen-catalogo" alt="Overwatch 2">
-                        <h3>Overwatch 2</h3>
-                        <p>Combates en equipo con héroes y habilidades especiales.</p>
-                        <span class="etiqueta-juego">Hero Shooter</span>
-                    </div>
-                </div>
-
-                <!-- DEPORTES -->
-                <div class="col-md-4 juego-item" data-categoria="deportes">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/ea-sports-fc.jpg" class="imagen-catalogo" alt="EA Sports FC">
-                        <h3>EA Sports FC</h3>
-                        <p>Simulador de fútbol con clubes, jugadores y torneos.</p>
-                        <span class="etiqueta-juego">Fútbol</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="deportes">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/nba-2k.jpg" class="imagen-catalogo" alt="NBA 2K">
-                        <h3>NBA 2K</h3>
-                        <p>Videojuego de baloncesto con equipos profesionales.</p>
-                        <span class="etiqueta-juego">Baloncesto</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="deportes">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/efootball.jpg" class="imagen-catalogo" alt="eFootball">
-                        <h3>eFootball</h3>
-                        <p>Simulación de partidos de fútbol y competición en línea.</p>
-                        <span class="etiqueta-juego">Fútbol</span>
-                    </div>
-                </div>
-
-                <!-- AVENTURA -->
-                <div class="col-md-4 juego-item" data-categoria="aventura">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/minecraft.jpg" class="imagen-catalogo" alt="Minecraft">
-                        <h3>Minecraft</h3>
-                        <p>Exploración, construcción y supervivencia en un mundo abierto.</p>
-                        <span class="etiqueta-juego">Aventura y supervivencia</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="aventura">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/gta-v.jpg" class="imagen-catalogo" alt="GTA V">
-                        <h3>GTA V</h3>
-                        <p>Aventura y misiones en un mundo abierto.</p>
-                        <span class="etiqueta-juego">Mundo abierto</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="aventura">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/spider-man.jpg" class="imagen-catalogo" alt="Marvel's Spider-Man">
-                        <h3>Marvel's Spider-Man</h3>
-                        <p>Aventura de superhéroes con exploración y combate.</p>
-                        <span class="etiqueta-juego">Acción y aventura</span>
-                    </div>
-                </div>
-
-                <!-- CARRERAS -->
-                <div class="col-md-4 juego-item" data-categoria="carreras">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/forza-horizon-5.jpg" class="imagen-catalogo" alt="Forza Horizon 5">
-                        <h3>Forza Horizon 5</h3>
-                        <p>Carreras de automóviles en escenarios de mundo abierto.</p>
-                        <span class="etiqueta-juego">Carreras</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="carreras">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/need-for-speed.jpg" class="imagen-catalogo" alt="Need for Speed">
-                        <h3>Need for Speed</h3>
-                        <p>Competencias de velocidad y personalización de vehículos.</p>
-                        <span class="etiqueta-juego">Carreras urbanas</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="carreras">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/mario-kart.jpg" class="imagen-catalogo" alt="Mario Kart">
-                        <h3>Mario Kart</h3>
-                        <p>Carreras divertidas con objetos y circuitos variados.</p>
-                        <span class="etiqueta-juego">Carreras arcade</span>
-                    </div>
-                </div>
-
-                <!-- ESTRATEGIA -->
-                <div class="col-md-4 juego-item" data-categoria="estrategia">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/clash-royale.jpg" class="imagen-catalogo" alt="Clash Royale">
-                        <h3>Clash Royale</h3>
-                        <p>Batallas estratégicas con cartas y torres.</p>
-                        <span class="etiqueta-juego">Estrategia</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="estrategia">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/league-of-legends.jpg" class="imagen-catalogo" alt="League of Legends">
-                        <h3>League of Legends</h3>
-                        <p>Competición estratégica por equipos con campeones.</p>
-                        <span class="etiqueta-juego">MOBA</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="estrategia">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/age-of-empires.jpg" class="imagen-catalogo" alt="Age of Empires">
-                        <h3>Age of Empires</h3>
-                        <p>Construcción de civilizaciones y estrategia en tiempo real.</p>
-                        <span class="etiqueta-juego">Estrategia en tiempo real</span>
-                    </div>
-                </div>
-
-                <!-- TERROR -->
-                <div class="col-md-4 juego-item" data-categoria="terror">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/resident-evil.jpg" class="imagen-catalogo" alt="Resident Evil">
-                        <h3>Resident Evil</h3>
-                        <p>Supervivencia y acción en ambientes de terror.</p>
-                        <span class="etiqueta-juego">Terror y supervivencia</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="terror">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/outlast.jpg" class="imagen-catalogo" alt="Outlast">
-                        <h3>Outlast</h3>
-                        <p>Exploración y supervivencia en situaciones de suspenso.</p>
-                        <span class="etiqueta-juego">Terror</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 juego-item" data-categoria="terror">
-                    <div class="tarjeta tarjeta-centrada">
-                        <img src="img/juegos/phasmophobia.jpg" class="imagen-catalogo" alt="Phasmophobia">
-                        <h3>Phasmophobia</h3>
-                        <p>Investigación cooperativa de fenómenos paranormales.</p>
-                        <span class="etiqueta-juego">Terror cooperativo</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- GRÁFICO -->
-        <section id="grafico" class="seccion">
-            <h2><i class="bi bi-bar-chart"></i> Gráfico de mis actividades</h2>
-
-            <p class="descripcion">
+<div class="compact-filter"><label for="gameFilter">Categoría</label><select class="form-select" id="gameFilter"><option value="todos">Todos</option><option value="shooter">Shooters</option><option value="deportes">Deportes</option><option value="aventura">Aventura</option><option value="carreras">Carreras</option><option value="estrategia">Estrategia</option><option value="terror">Terror</option></select></div>
+<div class="reading-deck" data-deck="juegos">
+<!-- SHOOTERS -->
+<div class="deck-item juego-item" data-categoria="shooter" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Valorant" class="imagen-catalogo" src="img/juegos/valorant.jpg"/>
+<h3>Valorant</h3>
+<p>Videojuego competitivo de disparos tácticos con agentes y habilidades especiales.</p>
+<span class="etiqueta-juego">Shooter táctico</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="deportes" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Rocket League" class="imagen-catalogo" src="img/juegos/rocket-league.jpg"/>
+<h3>Rocket League</h3>
+<p>Juego que combina fútbol y vehículos con partidos rápidos y competitivos.</p>
+<span class="etiqueta-juego">Deportes y conducción</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="shooter" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Fortnite" class="imagen-catalogo" src="img/juegos/fortnite.jpg"/>
+<h3>Fortnite</h3>
+<p>Videojuego multijugador de supervivencia, combate y estrategia.</p>
+<span class="etiqueta-juego">Battle Royale</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="shooter" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Counter-Strike 2" class="imagen-catalogo" src="img/juegos/counter-strike-2.jpg"/>
+<h3>Counter-Strike 2</h3>
+<p>Juego competitivo de disparos por equipos.</p>
+<span class="etiqueta-juego">Shooter táctico</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="shooter" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Apex Legends" class="imagen-catalogo" src="img/juegos/apex-legends.jpg"/>
+<h3>Apex Legends</h3>
+<p>Battle Royale con personajes de habilidades diferentes.</p>
+<span class="etiqueta-juego">Battle Royale</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="shooter" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Overwatch 2" class="imagen-catalogo" src="img/juegos/overwatch-2.jpg"/>
+<h3>Overwatch 2</h3>
+<p>Combates en equipo con héroes y habilidades especiales.</p>
+<span class="etiqueta-juego">Hero Shooter</span>
+</div>
+</div>
+<!-- DEPORTES -->
+<div class="deck-item juego-item" data-categoria="deportes" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="EA Sports FC" class="imagen-catalogo" src="img/juegos/ea-sports-fc.jpg"/>
+<h3>EA Sports FC</h3>
+<p>Simulador de fútbol con clubes, jugadores y torneos.</p>
+<span class="etiqueta-juego">Fútbol</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="deportes" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="NBA 2K" class="imagen-catalogo" src="img/juegos/nba-2k.jpg"/>
+<h3>NBA 2K</h3>
+<p>Videojuego de baloncesto con equipos profesionales.</p>
+<span class="etiqueta-juego">Baloncesto</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="deportes" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="eFootball" class="imagen-catalogo" src="img/juegos/efootball.jpg"/>
+<h3>eFootball</h3>
+<p>Simulación de partidos de fútbol y competición en línea.</p>
+<span class="etiqueta-juego">Fútbol</span>
+</div>
+</div>
+<!-- AVENTURA -->
+<div class="deck-item juego-item" data-categoria="aventura" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Minecraft" class="imagen-catalogo" src="img/juegos/minecraft.jpg"/>
+<h3>Minecraft</h3>
+<p>Exploración, construcción y supervivencia en un mundo abierto.</p>
+<span class="etiqueta-juego">Aventura y supervivencia</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="aventura" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="GTA V" class="imagen-catalogo" src="img/juegos/gta-v.jpg"/>
+<h3>GTA V</h3>
+<p>Aventura y misiones en un mundo abierto.</p>
+<span class="etiqueta-juego">Mundo abierto</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="aventura" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Marvel's Spider-Man" class="imagen-catalogo" src="img/juegos/spider-man.jpg"/>
+<h3>Marvel's Spider-Man</h3>
+<p>Aventura de superhéroes con exploración y combate.</p>
+<span class="etiqueta-juego">Acción y aventura</span>
+</div>
+</div>
+<!-- CARRERAS -->
+<div class="deck-item juego-item" data-categoria="carreras" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Forza Horizon 5" class="imagen-catalogo" src="img/juegos/forza-horizon-5.jpg"/>
+<h3>Forza Horizon 5</h3>
+<p>Carreras de automóviles en escenarios de mundo abierto.</p>
+<span class="etiqueta-juego">Carreras</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="carreras" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Need for Speed" class="imagen-catalogo" src="img/juegos/need-for-speed.jpg"/>
+<h3>Need for Speed</h3>
+<p>Competencias de velocidad y personalización de vehículos.</p>
+<span class="etiqueta-juego">Carreras urbanas</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="carreras" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Mario Kart" class="imagen-catalogo" src="img/juegos/mario-kart.jpg"/>
+<h3>Mario Kart</h3>
+<p>Carreras divertidas con objetos y circuitos variados.</p>
+<span class="etiqueta-juego">Carreras arcade</span>
+</div>
+</div>
+<!-- ESTRATEGIA -->
+<div class="deck-item juego-item" data-categoria="estrategia" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Clash Royale" class="imagen-catalogo" src="img/juegos/clash-royale.jpg"/>
+<h3>Clash Royale</h3>
+<p>Batallas estratégicas con cartas y torres.</p>
+<span class="etiqueta-juego">Estrategia</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="estrategia" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="League of Legends" class="imagen-catalogo" src="img/juegos/league-of-legends.jpg"/>
+<h3>League of Legends</h3>
+<p>Competición estratégica por equipos con campeones.</p>
+<span class="etiqueta-juego">MOBA</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="estrategia" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Age of Empires" class="imagen-catalogo" src="img/juegos/age-of-empires.jpg"/>
+<h3>Age of Empires</h3>
+<p>Construcción de civilizaciones y estrategia en tiempo real.</p>
+<span class="etiqueta-juego">Estrategia en tiempo real</span>
+</div>
+</div>
+<!-- TERROR -->
+<div class="deck-item juego-item" data-categoria="terror" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Resident Evil" class="imagen-catalogo" src="img/juegos/resident-evil.jpg"/>
+<h3>Resident Evil</h3>
+<p>Supervivencia y acción en ambientes de terror.</p>
+<span class="etiqueta-juego">Terror y supervivencia</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="terror" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Outlast" class="imagen-catalogo" src="img/juegos/outlast.jpg"/>
+<h3>Outlast</h3>
+<p>Exploración y supervivencia en situaciones de suspenso.</p>
+<span class="etiqueta-juego">Terror</span>
+</div>
+</div>
+<div class="deck-item juego-item" data-categoria="terror" hidden="True">
+<div class="tarjeta tarjeta-centrada">
+<img alt="Phasmophobia" class="imagen-catalogo" src="img/juegos/phasmophobia.jpg"/>
+<h3>Phasmophobia</h3>
+<p>Investigación cooperativa de fenómenos paranormales.</p>
+<span class="etiqueta-juego">Terror cooperativo</span>
+</div>
+</div>
+</div>
+<div class="pager" data-pager="juegos"><button aria-label="Juego anterior" data-prev="juegos" type="button">←</button><span aria-live="polite" data-count="juegos"></span><button aria-label="Juego siguiente" data-next="juegos" type="button">→</button></div></section>
+<!-- Filtro en cascada: área, opción y resultado (guía, capa 3) -->
+<section class="app-screen seccion filter-section" hidden="True" id="filtros" tabindex="-1">
+<h2><i class="bi bi-funnel"></i> Filtro dinámico de 3 capas</h2>
+<div class="tarjeta">
+<label class="form-label" for="capa1">Capa 1: Área</label>
+<select class="form-select campo-personal mb-3" id="capa1">
+<option value="">-- Elija Área --</option>
+<option value="academico">Académico (UPDS)</option>
+<option value="desarrollo">Desarrollo Software</option>
+</select>
+<label class="form-label" for="capa2">Capa 2: Opción</label>
+<select class="form-select campo-personal mb-3" disabled="" id="capa2">
+<option value="">-- Primero elija área --</option>
+</select>
+<div aria-live="polite" class="item-card" id="resultadoFiltro" role="status">Seleccione las capas anteriores...</div>
+</div>
+</section>
+<!-- GRÁFICO -->
+<section class="app-screen seccion" hidden="True" id="grafico" tabindex="-1">
+<h2><i class="bi bi-bar-chart"></i> Gráfico de mis actividades</h2>
+<p class="descripcion">
                 Distribución aproximada de 24 horas entre mis actividades diarias.
             </p>
-
-            <div class="contenedor-grafico">
-                <canvas id="graficoActividades"></canvas>
-            </div>
-        </section>
-
-        <!-- SALUDO -->
-        <section id="interactividad" class="seccion">
-            <h2><i class="bi bi-mouse"></i> Demostración interactiva</h2>
-
-            <div class="demo-box">
-                <h3>¡Bienvenido a mi página personal!</h3>
-
-                <p>
+<div class="contenedor-grafico">
+<canvas id="graficoActividades"></canvas>
+</div>
+</section>
+<!-- SALUDO -->
+<section class="app-screen seccion" hidden="True" id="interactividad" tabindex="-1">
+<h2><i class="bi bi-mouse"></i> Demostración interactiva</h2>
+<div class="demo-box">
+<h3>¡Bienvenido a mi página personal!</h3>
+<p>
                     Haz clic en el botón para mostrar un saludo dinámico creado con JavaScript.
                 </p>
-
-                <button id="saludoBtn" class="boton-personal" type="button">
-                    <i class="bi bi-hand-index"></i>
+<button class="boton-personal" id="saludoBtn" type="button">
+<i class="bi bi-hand-index"></i>
                     Mostrar saludo
                 </button>
-
-                <p id="interactive-output" aria-live="polite"></p>
-            </div>
-        </section>
-
-        <!-- FORMULARIO DE CONTACTO CON VALIDACIÓN -->
-        <section id="contacto" class="seccion">
-            <h2><i class="bi bi-envelope"></i> Formulario de contacto</h2>
-
-            <p class="descripcion">
+<p aria-live="polite" id="interactive-output"></p>
+</div>
+</section>
+<!-- FORMULARIO DE CONTACTO CON VALIDACIÓN -->
+<section class="app-screen seccion" hidden="True" id="contacto" tabindex="-1">
+<h2><i class="bi bi-envelope"></i> Formulario de contacto</h2>
+<p class="descripcion">
                 Todos los campos son obligatorios. Completa el formulario
                 para probar la validación con JavaScript y el DOM.
             </p>
+<div class="formulario-contenedor">
+<form id="contactForm" novalidate=""><div aria-label="Pasos del formulario" class="wizard-tabs" role="group"><button aria-label="Paso 1" aria-pressed="false" data-step="0" type="button">1</button><button aria-label="Paso 2" aria-pressed="false" data-step="1" type="button">2</button><button aria-label="Paso 3" aria-pressed="false" data-step="2" type="button">3</button><button aria-label="Paso 4" aria-pressed="false" data-step="3" type="button">4</button><button aria-label="Paso 5" aria-pressed="false" data-step="4" type="button">5</button><button aria-label="Paso 6" aria-pressed="false" data-step="5" type="button">6</button></div>
 
-            <div class="formulario-contenedor">
-                <form id="contactForm" novalidate>
-                    <div class="row g-3">
 
-                        <!-- NOMBRE -->
-                        <div class="col-md-6">
-                            <label for="nombre" class="form-label">Nombre *</label>
-                            <input type="text"
-                                   id="nombre"
-                                   class="form-control campo-personal"
-                                   placeholder="Escribe tu nombre"
-                                   autocomplete="given-name"
-                                   required>
-                            <div class="mensaje-error" id="error-nombre" aria-live="polite"></div>
-                        </div>
-
-                        <!-- APELLIDOS -->
-                        <div class="col-md-6">
-                            <label for="apellidos" class="form-label">Apellidos *</label>
-                            <input type="text"
-                                   id="apellidos"
-                                   class="form-control campo-personal"
-                                   placeholder="Escribe tus apellidos"
-                                   autocomplete="family-name"
-                                   required>
-                            <div class="mensaje-error" id="error-apellidos" aria-live="polite"></div>
-                        </div>
-
-                        <!-- CORREO -->
-                        <div class="col-md-6">
-                            <label for="correo" class="form-label">Correo electrónico *</label>
-                            <input type="email"
-                                   id="correo"
-                                   class="form-control campo-personal"
-                                   placeholder="ejemplo@correo.com"
-                                   autocomplete="email"
-                                   required>
-                            <div class="mensaje-error" id="error-correo" aria-live="polite"></div>
-                        </div>
-
-                        <!-- TELÉFONO -->
-                        <div class="col-md-6">
-                            <label for="telefono" class="form-label">Teléfono *</label>
-                            <input type="tel"
-                                   id="telefono"
-                                   class="form-control campo-personal"
-                                   placeholder="+591 70000000"
-                                   autocomplete="tel"
-                                   required>
-                            <div class="mensaje-error" id="error-telefono" aria-live="polite"></div>
-                        </div>
-
-                        <!-- CIUDAD -->
-                        <div class="col-md-6">
-                            <label for="ciudad" class="form-label">Ciudad *</label>
-                            <input type="text"
-                                   id="ciudad"
-                                   class="form-control campo-personal"
-                                   placeholder="Tu ciudad"
-                                   autocomplete="address-level2"
-                                   required>
-                            <div class="mensaje-error" id="error-ciudad" aria-live="polite"></div>
-                        </div>
-
-                        <!-- PAÍS -->
-                        <div class="col-md-6">
-                            <label for="pais" class="form-label">País *</label>
-                            <input type="text"
-                                   id="pais"
-                                   class="form-control campo-personal"
-                                   placeholder="Tu país"
-                                   autocomplete="country-name"
-                                   required>
-                            <div class="mensaje-error" id="error-pais" aria-live="polite"></div>
-                        </div>
-
-                        <!-- MOTIVO -->
-                        <div class="col-md-6">
-                            <label for="motivo" class="form-label">Motivo de contacto *</label>
-                            <select id="motivo" class="form-select campo-personal" required>
-                                <option value="">Selecciona un motivo</option>
-                                <option value="consulta">Consulta</option>
-                                <option value="sugerencia">Sugerencia</option>
-                                <option value="colaboracion">Colaboración</option>
-                                <option value="proyecto">Proyecto</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                            <div class="mensaje-error" id="error-motivo" aria-live="polite"></div>
-                        </div>
-
-                        <!-- URGENCIA -->
-                        <div class="col-md-6">
-                            <label for="urgencia" class="form-label">Nivel de urgencia *</label>
-                            <select id="urgencia" class="form-select campo-personal" required>
-                                <option value="">Selecciona el nivel</option>
-                                <option value="baja">Baja</option>
-                                <option value="media">Media</option>
-                                <option value="alta">Alta</option>
-                            </select>
-                            <div class="mensaje-error" id="error-urgencia" aria-live="polite"></div>
-                        </div>
-
-                        <!-- ASUNTO -->
-                        <div class="col-12">
-                            <label for="asunto" class="form-label">Asunto *</label>
-                            <input type="text"
-                                   id="asunto"
-                                   class="form-control campo-personal"
-                                   placeholder="Escribe el asunto de tu mensaje"
-                                   required>
-                            <div class="mensaje-error" id="error-asunto" aria-live="polite"></div>
-                        </div>
-
-                        <!-- MENSAJE -->
-                        <div class="col-12">
-                            <label for="mensaje" class="form-label">Mensaje detallado *</label>
-                            <textarea id="mensaje"
-                                      class="form-control campo-personal"
-                                      rows="6"
-                                      placeholder="Explica detalladamente el motivo de tu contacto"
-                                      required></textarea>
-                            <div class="mensaje-error" id="error-mensaje" aria-live="polite"></div>
-                        </div>
-
-                        <!-- ACEPTACIÓN -->
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input type="checkbox"
-                                       id="aceptoDatos"
-                                       class="form-check-input"
-                                       required>
-
-                                <label for="aceptoDatos" class="form-check-label">
+<fieldset class="wizard-step" data-step-panel="0" hidden=""><legend>Nombre y apellidos</legend><div class="wizard-fields"><div class="wizard-field">
+<label class="form-label" for="nombre">Nombre *</label>
+<input autocomplete="given-name" class="form-control campo-personal" id="nombre" placeholder="Escribe tu nombre" required="" type="text"/>
+<div aria-live="polite" class="mensaje-error" id="error-nombre"></div>
+</div><div class="wizard-field">
+<label class="form-label" for="apellidos">Apellidos *</label>
+<input autocomplete="family-name" class="form-control campo-personal" id="apellidos" placeholder="Escribe tus apellidos" required="" type="text"/>
+<div aria-live="polite" class="mensaje-error" id="error-apellidos"></div>
+</div></div></fieldset><fieldset class="wizard-step" data-step-panel="1" hidden=""><legend>Datos de contacto</legend><div class="wizard-fields"><div class="wizard-field">
+<label class="form-label" for="correo">Correo electrónico *</label>
+<input autocomplete="email" class="form-control campo-personal" id="correo" placeholder="ejemplo@correo.com" required="" type="email"/>
+<div aria-live="polite" class="mensaje-error" id="error-correo"></div>
+</div><div class="wizard-field">
+<label class="form-label" for="telefono">Teléfono *</label>
+<input autocomplete="tel" class="form-control campo-personal" id="telefono" placeholder="+591 70000000" required="" type="tel"/>
+<div aria-live="polite" class="mensaje-error" id="error-telefono"></div>
+</div></div></fieldset><fieldset class="wizard-step" data-step-panel="2" hidden=""><legend>Tu ubicación</legend><div class="wizard-fields"><div class="wizard-field">
+<label class="form-label" for="ciudad">Ciudad *</label>
+<input autocomplete="address-level2" class="form-control campo-personal" id="ciudad" placeholder="Tu ciudad" required="" type="text"/>
+<div aria-live="polite" class="mensaje-error" id="error-ciudad"></div>
+</div><div class="wizard-field">
+<label class="form-label" for="pais">País *</label>
+<input autocomplete="country-name" class="form-control campo-personal" id="pais" placeholder="Tu país" required="" type="text"/>
+<div aria-live="polite" class="mensaje-error" id="error-pais"></div>
+</div></div></fieldset><fieldset class="wizard-step" data-step-panel="3" hidden=""><legend>Motivo y urgencia</legend><div class="wizard-fields"><div class="wizard-field">
+<label class="form-label" for="motivo">Motivo de contacto *</label>
+<select class="form-select campo-personal" id="motivo" required="">
+<option value="">Selecciona un motivo</option>
+<option value="consulta">Consulta</option>
+<option value="sugerencia">Sugerencia</option>
+<option value="colaboracion">Colaboración</option>
+<option value="proyecto">Proyecto</option>
+<option value="otro">Otro</option>
+</select>
+<div aria-live="polite" class="mensaje-error" id="error-motivo"></div>
+</div><div class="wizard-field">
+<label class="form-label" for="urgencia">Nivel de urgencia *</label>
+<select class="form-select campo-personal" id="urgencia" required="">
+<option value="">Selecciona el nivel</option>
+<option value="baja">Baja</option>
+<option value="media">Media</option>
+<option value="alta">Alta</option>
+</select>
+<div aria-live="polite" class="mensaje-error" id="error-urgencia"></div>
+</div></div></fieldset><fieldset class="wizard-step" data-step-panel="4" hidden=""><legend>Tu mensaje</legend><div class="wizard-fields"><div class="wizard-field">
+<label class="form-label" for="asunto">Asunto *</label>
+<input class="form-control campo-personal" id="asunto" placeholder="Escribe el asunto de tu mensaje" required="" type="text"/>
+<div aria-live="polite" class="mensaje-error" id="error-asunto"></div>
+</div><div class="wizard-field">
+<label class="form-label" for="mensaje">Mensaje detallado *</label>
+<textarea class="form-control campo-personal" id="mensaje" placeholder="Explica detalladamente el motivo de tu contacto" required="" rows="3"></textarea>
+<div aria-live="polite" class="mensaje-error" id="error-mensaje"></div>
+</div></div></fieldset><fieldset class="wizard-step" data-step-panel="5" hidden=""><legend>Aceptación de datos</legend><div class="wizard-fields"><div class="wizard-field">
+<div class="form-check">
+<input class="form-check-input" id="aceptoDatos" required="" type="checkbox"/>
+<label class="form-check-label" for="aceptoDatos">
                                     Acepto proporcionar mis datos personales
                                     para fines de contacto y entiendo que
                                     este formulario es una demostración,
                                     por lo que no envía ni almacena los datos. *
                                 </label>
-
-                                <div class="mensaje-error"
-                                     id="error-aceptoDatos"
-                                     aria-live="polite"></div>
-                            </div>
-                        </div>
-
-                        <!-- ENVIAR -->
-                        <div class="col-12">
-                            <button type="submit" class="boton-personal">
-                                <i class="bi bi-send"></i>
-                                Enviar mensaje
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div id="alertaBox"
-                         class="mt-3"
-                         role="status"
-                         aria-live="polite"></div>
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer id="redes" class="footer">
-        <div class="container">
-
-            <div class="frase-footer">
-                <i class="bi bi-quote"></i>
-                <p>
+<div aria-live="polite" class="mensaje-error" id="error-aceptoDatos"></div>
+</div>
+</div></div></fieldset><div class="wizard-controls"><button class="secondary-button" id="formPrev" type="button">Anterior</button><span id="formProgress" role="status"></span><button class="boton-personal" id="formNext" type="button">Siguiente</button><button class="boton-personal" hidden="" id="formSend" type="submit">Enviar mensaje</button></div><div aria-live="polite" class="form-status" id="alertaBox" role="status"></div></form>
+</div>
+</section>
+<section class="app-screen social-screen" hidden="True" id="redes" tabindex="-1">
+<div class="container">
+<div class="frase-footer">
+<i class="bi bi-quote"></i>
+<p>
                     Cada día es una nueva oportunidad
                     para aprender algo nuevo.
                 </p>
-                <span>— Bryan Zelaya</span>
-            </div>
-
-            <h2 class="text-center mb-4">Mis redes sociales</h2>
-
-            <div class="row text-center">
-
-                <!-- INSTAGRAM -->
-                <div class="col-md-4 footer-columna">
-                    <a href="https://www.instagram.com/gzob.03?cplk=MWdiN2xsNmZ2MDFvNQ=="
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <i class="bi bi-instagram"></i>
-                        <h4>Instagram</h4>
-                        <p>@gzob.03</p>
-                    </a>
-                </div>
-
-                <!-- TIKTOK -->
-                <div class="col-md-4 footer-columna">
-                    <a href="https://www.tiktok.com/@btoztob"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <i class="bi bi-tiktok"></i>
-                        <h4>TikTok</h4>
-                        <p>@btoztob</p>
-                    </a>
-                </div>
-
-                <!-- GITHUB -->
-                <div class="col-md-4 footer-columna">
-                    <a href="https://github.com/BtoZtoB"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <i class="bi bi-github"></i>
-                        <h4>GitHub</h4>
-                        <p>BtoZtoB</p>
-                    </a>
-                </div>
-
-            </div>
-
-            <hr>
-
-            <p class="text-center copyright">
+<span>— Bryan Zelaya</span>
+</div>
+<h2 class="text-center mb-4">Mis redes sociales</h2>
+<div class="row text-center">
+<!-- INSTAGRAM -->
+<div class="col-md-4 footer-columna">
+<a href="https://www.instagram.com/gzob.03?cplk=MWdiN2xsNmZ2MDFvNQ==" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-instagram"></i>
+<h4>Instagram</h4>
+<p>@gzob.03</p>
+</a>
+</div>
+<!-- TIKTOK -->
+<div class="col-md-4 footer-columna">
+<a href="https://www.tiktok.com/@btoztob" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-tiktok"></i>
+<h4>TikTok</h4>
+<p>@btoztob</p>
+</a>
+</div>
+<!-- GITHUB -->
+<div class="col-md-4 footer-columna">
+<a href="https://github.com/BtoZtoB" rel="noopener noreferrer" target="_blank">
+<i class="bi bi-github"></i>
+<h4>GitHub</h4>
+<p>BtoZtoB</p>
+</a>
+</div>
+</div>
+<hr/>
+<p class="text-center copyright">
                 © 2026 Bryan Zelaya | Mi Página Personal
             </p>
-        </div>
-    </footer>
+</div>
+</section></main><nav aria-label="Navegación principal" class="bottom-tabs"><button data-screen="inicio" type="button"><i class="bi bi-house"></i><span>Inicio</span></button><button data-screen="musica" type="button"><i class="bi bi-music-note-beamed"></i><span>Música</span></button><button data-screen="juegos" type="button"><i class="bi bi-dpad"></i><span>Juegos</span></button><button data-screen="contacto" type="button"><i class="bi bi-envelope"></i><span>Contacto</span></button><button id="moreMenu" type="button"><i class="bi bi-grid"></i><span>Más</span></button></nav>
+<!-- FOOTER -->
 
-    <!-- LIBRERÍAS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<!-- LIBRERÍAS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</div>
 </body>
 </html>
