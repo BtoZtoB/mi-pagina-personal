@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Diagnóstico de código</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100dvh;
+            margin: 0;
+            padding: 24px 16px;
+            font-family: Arial, sans-serif;
+            color: #eef4ff;
+            background: linear-gradient(
+                160deg,
+                #071226,
+                #102b52 55%,
+                #071226
+            );
+        }
+
+        main {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 24px;
+            border: 1px solid #344e73;
+            border-top: 4px solid #d71920;
+            border-radius: 12px;
+            background: #101f38;
+            box-shadow: 0 10px 25px #0003;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 25px;
+        }
+
+        h2 {
+            margin: 0 0 15px;
+            font-size: 21px;
+        }
+
+        p {
+            color: #b5c6df;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 10px;
+            font-weight: bold;
+        }
+
+        textarea {
+            display: block;
+            width: 100%;
+            min-height: 260px;
+            padding: 14px;
+            border: 1px solid #48658a;
+            border-radius: 8px;
+            background: #08162b;
+            color: #eef4ff;
+            font: 16px/1.5 monospace;
+            resize: vertical;
+        }
+
+        textarea::placeholder {
+            color: #92a8c7;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #d71920;
+            box-shadow: 0 0 0 3px #d7192033;
+        }
+
+        button {
+            margin-top: 16px;
+            padding: 12px 22px;
+            border: 1px solid #a70f19;
+            border-radius: 8px;
+            background: #d71920;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ac1422;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #78caff;
+            outline-offset: 3px;
+        }
+
+        #resumen {
+            padding: 12px;
+            border-left: 4px solid #d71920;
+            border-radius: 6px;
+            background: #08162b;
+            color: #eef4ff;
+        }
+
+        ul {
+            margin-bottom: 0;
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 14px;
+            color: #c4d3e8;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 14px;
+            }
+
+            section {
+                padding: 18px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+<textarea id="codigo" aria-label="Código para analizar" spellcheck="false" placeholder="Pega aquí el código que quieres analizar..."></textarea>
+<button id="analizar" type="button">Analizar código</button>
+<section id="resultado" hidden><p id="resumen" role="status" aria-live="polite"></p><ul id="hallazgos"></ul></section>
+</main>
+
+    <script>
+        'use strict';
+
+        const source = document.getElementById('codigo');
+        const result = document.getElementById('resultado');
+        const summary = document.getElementById('resumen');
+        const findings = document.getElementById('hallazgos');
+
+        function analyze() {
+            const code = source.value.trim();
+
+            findings.replaceChildren();
+            result.hidden = false;
+
+            if (!code) {
+                summary.textContent =
+                    'Primero pega el código que deseas revisar.';
+
+                source.focus();
+                return;
+            }
+
+            const messages = [];
+            let warnings = 0;
+
+            function warn(message) {
+                warnings++;
+                messages.push('Revisar: ' + message);
+            }
+
+            function info(message) {
+                messages.push(message);
+            }
+
+            // Nombres que pueden coincidir con reglas de bloqueadores.
+            const suspicious = [
+                'ad-banner',
+                'promo-box',
+                'social-ads',
+                'analytics',
+                'tracker'
+            ];
+
+            const classNames = new Set();
+
+            for (const match of code.matchAll(
+                /\bclass\s*=\s*["']([^"']*)["']/gi
+            )) {
+                match[1]
+                    .split(/\s+/)
+                    .filter(Boolean)
+                    .forEach(name => {
+                        classNames.add(name.toLowerCase());
+                    });
+            }
+
+            for (const name of suspicious) {
+                const selector = new RegExp(
+                    '\\.' + name + '(?![\\w-])',
+                    'i'
+                );
+
+                if (classNames.has(name) || selector.test(code)) {
+                    warn(
+                        'La clase "' + name + '" puede coincidir con ' +
+                        'reglas de algunos bloqueadores. Usa un nombre ' +
+                        'semántico y actualiza sus referencias.'
+                    );
+                }
+            }
+
+            // Altura visible en dispositivos móviles.
+            if (/\bheight\s*:\s*100vh\b/i.test(code)) {
+                warn(
+                    'Se detectó height: 100vh. Comprueba la altura ' +
+                    'visible en móviles; 100dvh o visualViewport ' +
+                    'pueden adaptarse mejor.'
+                );
+            }
+
+            if (/100dvh|visualViewport/.test(code)) {
+                info(
+                    'Se detectó adaptación a la altura visible ' +
+                    'mediante 100dvh o visualViewport.'
+                );
+            }
+
+            // Viewport del HTML.
+            if (/<html\b/i.test(code)) {
+                if (
+                    !/<meta\b[^>]*\bname\s*=\s*["']viewport["']/i.test(code)
+                ) {
+                    warn(
+                        'El HTML no contiene una etiqueta meta viewport.'
+                    );
+                } else {
+                    info('El HTML contiene meta viewport.');
+                }
+
+                if (/user-scalable\s*=\s*no/i.test(code)) {
+                    warn(
+                        'El viewport impide ampliar con zoom. ' +
+                        'Permitirlo mejora la accesibilidad.'
+                    );
+                }
+            }
+
+            // Posibles eventos individuales.
+            if (/\.each\s*\([\s\S]*?\.on\s*\(/.test(code)) {
+                warn(
+                    'Se detectó un posible registro de eventos ' +
+                    'individuales dentro de .each(). Revisa si ' +
+                    'puedes delegarlos al contenedor padre.'
+                );
+            }
+
+            // Limpieza de eventos.
+            if (/\.on\s*\(/.test(code)) {
+                info(
+                    'Se detectaron eventos jQuery. Comprueba que ' +
+                    'se registren una sola vez o se limpien antes ' +
+                    'de reconectarlos.'
+                );
+
+                if (/\.off\s*\(/.test(code)) {
+                    info(
+                        'Se detectó .off(). Verifica que limpie ' +
+                        'los mismos eventos que se vuelven a registrar.'
+                    );
+                }
+            }
+
+            // Temporizadores.
+            if (
+                /setTimeout\s*\(/.test(code) &&
+                !/clearTimeout\s*\(/.test(code)
+            ) {
+                warn(
+                    'Hay setTimeout sin clearTimeout en el texto ' +
+                    'analizado. Revisa si necesita cancelarse.'
+                );
+            }
+
+            if (
+                /setInterval\s*\(/.test(code) &&
+                !/clearInterval\s*\(/.test(code)
+            ) {
+                warn(
+                    'Hay setInterval sin clearInterval en el ' +
+                    'texto analizado. Revisa su limpieza.'
+                );
+            }
+
+            // Referencias PWA.
+            if (
+                /serviceWorker|rel\s*=\s*["']manifest["']/i.test(code)
+            ) {
+                info(
+                    'Hay referencias a componentes PWA. Esto no ' +
+                    'confirma que la instalación o el modo offline ' +
+                    'estén funcionando.'
+                );
+            }
+
+            info(
+                'Este análisis es orientativo: busca patrones de ' +
+                'texto, no ejecuta el código ni mide el uso de memoria.'
+            );
+
+            summary.textContent = warnings
+                ? warnings + ' punto(s) para revisar.'
+                : 'No se detectaron alertas en las comprobaciones realizadas.';
+
+            for (const message of messages) {
+                const item = document.createElement('li');
+                item.textContent = message;
+                findings.appendChild(item);
+            }
+        }
+
+        // Evento delegado desde el contenedor.
+        document.querySelector('main').addEventListener(
+            'click',
+            function (event) {
+                if (
+                    event.target instanceof Element &&
+                    event.target.closest('#analizar')
+                ) {
+                    analyze();
+                }
+            }
+        );
+    </script>
+</body>
+</html>
